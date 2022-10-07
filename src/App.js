@@ -1,4 +1,4 @@
-import qData from "./data.json";
+import qData from "./assets/output.json";
 import "./App.css";
 
 function App() {
