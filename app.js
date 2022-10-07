@@ -10,28 +10,30 @@ fs.readFile(filename, "utf8", function (err, data) {
   if (err) throw err;
   console.log("OK: " + filename);
   const arr = data.split(/\r?\n/);
-  const regexNum = /^\d+\..+/g;
-  const regexDash = /^-.+/;
+  const regexQuestion = /^(\d+\.\s)(.+)/;
+  const regexOption = /^(-\s)(.+)/;
   const testBank = [];
   let current = {};
   arr.forEach((item) => {
-    if (current.question && item.match(regexNum)) {
+    let matchedQuestion = item.match(regexQuestion);
+    let matchedOption = item.match(regexOption);
+    if (current.question && matchedQuestion) {
       testBank.push(current);
       current = {};
     }
     // question
-    if (item.match(regexNum)) {
-      current.question = item;
+    if (matchedQuestion) {
+      current.question = matchedQuestion[2];
     }
     // options
-    if (item.match(regexDash)) {
+    if (matchedOption) {
       if (!current.option) {
         current.option = [];
       }
-      current.option.push(item);
+      current.option.push(matchedOption[2]);
     }
   });
-  //   handle last question/answer
+  //   handle adding on the last question/answer
   testBank.push(current);
   console.log(testBank, "tb");
 });
