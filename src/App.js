@@ -1,25 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
+import qData from "./data.json";
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const sample = [];
+  for (let i = 0; i < 10; i++) {
+    sample.push(<div>{qData.questions[i].question}</div>);
+  }
+  return <div className="App">{sample}</div>;
 }
 
 export default App;

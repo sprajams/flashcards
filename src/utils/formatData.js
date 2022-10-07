@@ -11,12 +11,12 @@ fs.readFile(filename, "utf8", function (err, data) {
   console.log("OK: " + filename);
   const arr = data.split(/\r?\n/);
   const regexQuestion = /^(\d+\.\s)(.+)/;
-  const regexOption = /^(-\s)(.+)/;
+  const regexoptions = /^(-\s)(.+)/;
   const testBank = [];
   let current = {};
   arr.forEach((item) => {
     let matchedQuestion = item.match(regexQuestion);
-    let matchedOption = item.match(regexOption);
+    let matchedOptions = item.match(regexoptions);
     if (current.question && matchedQuestion) {
       testBank.push(current);
       current = {};
@@ -25,15 +25,26 @@ fs.readFile(filename, "utf8", function (err, data) {
     if (matchedQuestion) {
       current.question = matchedQuestion[2];
     }
-    // options
-    if (matchedOption) {
-      if (!current.option) {
-        current.option = [];
+    // optionss
+    if (matchedOptions) {
+      if (!current.options) {
+        current.options = [];
       }
-      current.option.push(matchedOption[2]);
+      current.options.push(matchedOptions[2]);
     }
   });
   //   handle adding on the last question/answer
   testBank.push(current);
-  console.log(testBank, "tb");
+
+  const questionData = { questions: testBank };
+
+  fs.writeFile(
+    "output.json",
+    JSON.stringify(questionData, null, 2),
+    "utf-8",
+    (err) => {
+      if (err) throw err;
+      console.log("The file has been saved!");
+    }
+  );
 });
