@@ -1,15 +1,3 @@
-.outer {
-  height: 100%;
-  border: 2px solid rgb(195, 228, 195);
-  border-top: 16px solid rgb(195, 228, 195);
-  border-bottom: 16px solid rgb(195, 228, 195);
-  border-radius: 8px;
-  box-shadow: 2px 2px 4px rgba(133, 156, 133, 0.7);
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
 .topInfo {
   display: flex;
   justify-content: space-between;
@@ -24,7 +12,6 @@
 .questionWrapper {
   font-size: 1.25rem;
   min-height: 200px;
-  overflow: scroll;
 }
 .answerBtnWrap {
   display: flex;
