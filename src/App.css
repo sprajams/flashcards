@@ -22,7 +22,6 @@
 .btnContainer {
   margin-top: 20px;
   height: 50px;
-  border: 1px solid orange;
   display: flex;
   justify-content: center;
   gap: 20px;

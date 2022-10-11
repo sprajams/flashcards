@@ -2,9 +2,7 @@
   "questions": [
     {
       "question": "What is the supreme law of the land?",
-      "options": [
-        "the Constitution"
-      ]
+      "options": ["the Constitution"]
     },
     {
       "question": "What does the Constitution do?",
@@ -16,9 +14,7 @@
     },
     {
       "question": "The idea of self-government is in the first three words of the Constitution. What are these words?",
-      "options": [
-        "We the People"
-      ]
+      "options": ["We the People"]
     },
     {
       "question": "What is an amendment?",
@@ -29,9 +25,7 @@
     },
     {
       "question": "What do we call the first ten amendments to the Constitution?",
-      "options": [
-        "the Bill of Rights"
-      ]
+      "options": ["the Bill of Rights"]
     },
     {
       "question": "What is one right or freedom from the First Amendment?",
@@ -45,9 +39,7 @@
     },
     {
       "question": "How many amendments does the Constitution have?",
-      "options": [
-        "twenty-seven (27)"
-      ]
+      "options": ["twenty-seven (27)"]
     },
     {
       "question": "What did the Declaration of Independence do?",
@@ -59,24 +51,15 @@
     },
     {
       "question": "What are two rights in the Declaration of Independence?",
-      "options": [
-        "life",
-        "liberty",
-        "pursuit of happiness"
-      ]
+      "options": ["life", "liberty", "pursuit of happiness"]
     },
     {
       "question": "What is freedom of religion?",
-      "options": [
-        "You can practice any religion, or not practice a religion."
-      ]
+      "options": ["You can practice any religion, or not practice a religion."]
     },
     {
       "question": "What is the economic system in the United States?",
-      "options": [
-        "capitalist economy",
-        "market economy"
-      ]
+      "options": ["capitalist economy", "market economy"]
     },
     {
       "question": "What is the “rule of law”?",
@@ -100,16 +83,11 @@
     },
     {
       "question": "What stops one branch of government from becoming too powerful?",
-      "options": [
-        "checks and balances",
-        "separation of powers"
-      ]
+      "options": ["checks and balances", "separation of powers"]
     },
     {
       "question": "Who is in charge of the executive branch?",
-      "options": [
-        "the President"
-      ]
+      "options": ["the President"]
     },
     {
       "question": "Who makes federal laws?",
@@ -121,21 +99,15 @@
     },
     {
       "question": "What are the two parts of the U.S. Congress?",
-      "options": [
-        "the Senate and House (of Representatives)"
-      ]
+      "options": ["the Senate and House (of Representatives)"]
     },
     {
       "question": "How many U.S. Senators are there?",
-      "options": [
-        "one hundred (100)"
-      ]
+      "options": ["one hundred (100)"]
     },
     {
       "question": "We elect a U.S. Senator for how many years?",
-      "options": [
-        "six (6)"
-      ]
+      "options": ["six (6)"]
     },
     {
       "question": "Who is one of your state’s U.S. Senators now?",
@@ -145,15 +117,11 @@
     },
     {
       "question": "The House of Representatives has how many voting members?",
-      "options": [
-        "four hundred thirty-five (435)"
-      ]
+      "options": ["four hundred thirty-five (435)"]
     },
     {
       "question": "We elect a U.S. Representative for how many years?",
-      "options": [
-        "two (2)"
-      ]
+      "options": ["two (2)"]
     },
     {
       "question": "Name your U.S. Representative.",
@@ -163,9 +131,7 @@
     },
     {
       "question": "Who does a U.S. Senator represent?",
-      "options": [
-        "all people of the state"
-      ]
+      "options": ["all people of the state"]
     },
     {
       "question": "Why do some states have more Representatives than other states?",
@@ -177,15 +143,11 @@
     },
     {
       "question": "We elect a President for how many years?",
-      "options": [
-        "four (4)"
-      ]
+      "options": ["four (4)"]
     },
     {
       "question": "In what month do we vote for President?",
-      "options": [
-        "November"
-      ]
+      "options": ["November"]
     },
     {
       "question": "What is the name of the President of the United States now?",
@@ -201,39 +163,27 @@
     },
     {
       "question": "If the President can no longer serve, who becomes President?",
-      "options": [
-        "the Vice President"
-      ]
+      "options": ["the Vice President"]
     },
     {
       "question": "If both the President and the Vice President can no longer serve, who becomes President?",
-      "options": [
-        "the Speaker of the House"
-      ]
+      "options": ["the Speaker of the House"]
     },
     {
       "question": "Who is the Commander in Chief of the military?",
-      "options": [
-        "the President"
-      ]
+      "options": ["the President"]
     },
     {
       "question": "Who signs bills to become laws?",
-      "options": [
-        "the President"
-      ]
+      "options": ["the President"]
     },
     {
       "question": "Who vetoes bills?",
-      "options": [
-        "the President"
-      ]
+      "options": ["the President"]
     },
     {
       "question": "What does the President’s Cabinet do?",
-      "options": [
-        "advises the President"
-      ]
+      "options": ["advises the President"]
     },
     {
       "question": "What are two Cabinet-level positions?",
@@ -267,9 +217,7 @@
     },
     {
       "question": "What is the highest court in the United States?",
-      "options": [
-        "the Supreme Court"
-      ]
+      "options": ["the Supreme Court"]
     },
     {
       "question": "How many justices are on the Supreme Court?",
@@ -284,7 +232,7 @@
       ]
     },
     {
-      "question": "Under our Constitution, some powers belong to the federal government. What is one power of the federal",
+      "question": "Under our Constitution, some powers belong to the federal government. What is one power of the federal government?",
       "options": [
         "to print money",
         "to declare war",
@@ -316,9 +264,7 @@
     },
     {
       "question": "What are the two major political parties in the United States?",
-      "options": [
-        "Democratic and Republican"
-      ]
+      "options": ["Democratic and Republican"]
     },
     {
       "question": "What is the political party of the President now?",
@@ -343,17 +289,11 @@
     },
     {
       "question": "What is one responsibility that is only for United States citizens?",
-      "options": [
-        "serve on a jury",
-        "vote in a federal election"
-      ]
+      "options": ["serve on a jury", "vote in a federal election"]
     },
     {
       "question": "Name one right only for United States citizens.",
-      "options": [
-        "vote in a federal election",
-        "run for federal office"
-      ]
+      "options": ["vote in a federal election", "run for federal office"]
     },
     {
       "question": "What are two rights of everyone living in the United States?",
@@ -368,10 +308,7 @@
     },
     {
       "question": "What do we show loyalty to when we say the Pledge of Allegiance?",
-      "options": [
-        "the United States",
-        "the flag"
-      ]
+      "options": ["the United States", "the flag"]
     },
     {
       "question": "What is one promise you make when you become a United States citizen?",
@@ -386,9 +323,7 @@
     },
     {
       "question": "How old do citizens have to be to vote for President?",
-      "options": [
-        "eighteen (18) and older"
-      ]
+      "options": ["eighteen (18) and older"]
     },
     {
       "question": "What are two ways that Americans can participate in their democracy?",
@@ -407,9 +342,7 @@
     },
     {
       "question": "When is the last day you can send in federal income tax forms?",
-      "options": [
-        "April 15"
-      ]
+      "options": ["April 15"]
     },
     {
       "question": "When must all men register for the Selective Service?",
@@ -431,17 +364,11 @@
     },
     {
       "question": "Who lived in America before the Europeans arrived?",
-      "options": [
-        "American Indians",
-        "Native Americans"
-      ]
+      "options": ["American Indians", "Native Americans"]
     },
     {
       "question": "What group of people was taken to America and sold as slaves?",
-      "options": [
-        "Africans",
-        "people from Africa"
-      ]
+      "options": ["Africans", "people from Africa"]
     },
     {
       "question": "Why did the colonists fight the British?",
@@ -453,15 +380,11 @@
     },
     {
       "question": "Who wrote the Declaration of Independence?",
-      "options": [
-        "(Thomas) Jefferson"
-      ]
+      "options": ["(Thomas) Jefferson"]
     },
     {
       "question": "When was the Declaration of Independence adopted?",
-      "options": [
-        "July 4, 1776"
-      ]
+      "options": ["July 4, 1776"]
     },
     {
       "question": "There were 13 original states. Name three.",
@@ -490,9 +413,7 @@
     },
     {
       "question": "When was the Constitution written?",
-      "options": [
-        "1787"
-      ]
+      "options": ["1787"]
     },
     {
       "question": "The Federalist Papers supported the passage of the U.S. Constitution. Name one of the writers.",
@@ -515,22 +436,15 @@
     },
     {
       "question": "Who is the “Father of Our Country”?",
-      "options": [
-        "(George) Washington"
-      ]
+      "options": ["(George) Washington"]
     },
     {
       "question": "Who was the first President?",
-      "options": [
-        "(George) Washington"
-      ]
+      "options": ["(George) Washington"]
     },
     {
       "question": "What territory did the United States buy from France in 1803?",
-      "options": [
-        "the Louisiana Territory",
-        "Louisiana"
-      ]
+      "options": ["the Louisiana Territory", "Louisiana"]
     },
     {
       "question": "Name one war fought by the United States in the 1800s.",
@@ -543,18 +457,11 @@
     },
     {
       "question": "Name the U.S. war between the North and the South.",
-      "options": [
-        "the Civil War",
-        "the War between the States"
-      ]
+      "options": ["the Civil War", "the War between the States"]
     },
     {
       "question": "Name one problem that led to the Civil War.",
-      "options": [
-        "slavery",
-        "economic reasons",
-        "states’ rights"
-      ]
+      "options": ["slavery", "economic reasons", "states’ rights"]
     },
     {
       "question": "What was one important thing that Abraham Lincoln did?",
@@ -575,10 +482,7 @@
     },
     {
       "question": "What did Susan B. Anthony do?",
-      "options": [
-        "fought for women’s rights",
-        "fought for civil rights"
-      ]
+      "options": ["fought for women’s rights", "fought for civil rights"]
     },
     {
       "question": "Name one war fought by the United States in the 1900s.",
@@ -592,39 +496,27 @@
     },
     {
       "question": "Who was President during World War I?",
-      "options": [
-        "(Woodrow) Wilson"
-      ]
+      "options": ["(Woodrow) Wilson"]
     },
     {
       "question": "Who was President during the Great Depression and World War II?",
-      "options": [
-        "(Franklin) Roosevelt"
-      ]
+      "options": ["(Franklin) Roosevelt"]
     },
     {
       "question": "Who did the United States fight in World War II?",
-      "options": [
-        "Japan, Germany, and Italy"
-      ]
+      "options": ["Japan, Germany, and Italy"]
     },
     {
       "question": "Before he was President, Eisenhower was a general. What war was he in?",
-      "options": [
-        "World War II"
-      ]
+      "options": ["World War II"]
     },
     {
       "question": "During the Cold War, what was the main concern of the United States?",
-      "options": [
-        "Communism"
-      ]
+      "options": ["Communism"]
     },
     {
       "question": "What movement tried to end racial discrimination?",
-      "options": [
-        "civil rights (movement)"
-      ]
+      "options": ["civil rights (movement)"]
     },
     {
       "question": "What did Martin Luther King, Jr. do?",
@@ -635,9 +527,7 @@
     },
     {
       "question": "What major event happened on September 11, 2001, in the United States?",
-      "options": [
-        "Terrorists attacked the United States."
-      ]
+      "options": ["Terrorists attacked the United States."]
     },
     {
       "question": "Name one American Indian tribe in the United States.",
@@ -668,22 +558,15 @@
     },
     {
       "question": "Name one of the two longest rivers in the United States.",
-      "options": [
-        "Missouri (River)",
-        "Mississippi (River)"
-      ]
+      "options": ["Missouri (River)", "Mississippi (River)"]
     },
     {
       "question": "What ocean is on the West Coast of the United States?",
-      "options": [
-        "Pacific (Ocean)"
-      ]
+      "options": ["Pacific (Ocean)"]
     },
     {
       "question": "What ocean is on the East Coast of the United States?",
-      "options": [
-        "Atlantic (Ocean)"
-      ]
+      "options": ["Atlantic (Ocean)"]
     },
     {
       "question": "Name one U.S. territory.",
@@ -715,25 +598,15 @@
     },
     {
       "question": "Name one state that borders Mexico.",
-      "options": [
-        "California",
-        "Arizona",
-        "New Mexico",
-        "Texas"
-      ]
+      "options": ["California", "Arizona", "New Mexico", "Texas"]
     },
     {
       "question": "What is the capital of the United States?",
-      "options": [
-        "Washington, D.C."
-      ]
+      "options": ["Washington, D.C."]
     },
     {
       "question": "Where is the Statue of Liberty?",
-      "options": [
-        "New York (Harbor)",
-        "Liberty Island"
-      ]
+      "options": ["New York (Harbor)", "Liberty Island"]
     },
     {
       "question": "Why does the flag have 13 stripes?",
@@ -752,15 +625,11 @@
     },
     {
       "question": "What is the name of the national anthem?",
-      "options": [
-        "The Star-Spangled Banner"
-      ]
+      "options": ["The Star-Spangled Banner"]
     },
     {
       "question": "When do we celebrate Independence Day?",
-      "options": [
-        "July 4"
-      ]
+      "options": ["July 4"]
     },
     {
       "question": "Name two national U.S. holidays.",

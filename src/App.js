@@ -1,34 +1,43 @@
 import { useState } from "react";
 import qData from "./assets/output.json";
-import FrontCard from "./components/FrontCard";
+import Card from "./components/CardLayout";
 import "./App.css";
 
 function App() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [revealAnswer, setRevealAnswer] = useState(false);
-  const sample = [];
-
-  for (let i = 0; i < 10; i++) {
-    sample.push(<div>{qData.questions[i].question}</div>);
-  }
-
+  const [activeFront, setActiveFront] = useState(true);
+  const handleNext = () => {
+    setActiveFront(true);
+    if (activeIndex < 100) {
+      setActiveIndex(activeIndex + 1);
+    } else {
+      setActiveIndex(0);
+    }
+  };
+  const handlePrev = () => {
+    setActiveFront(true);
+    if (activeIndex === 0) {
+      setActiveIndex(99);
+    } else {
+      setActiveIndex(activeIndex - 1);
+    }
+  };
   return (
     <div className="outer">
       <div className="inner">
         <div className="contentContainer">
-          <FrontCard
-            data={qData.questions[activeIndex].question}
+          <Card
+            question={qData.questions[activeIndex].question}
+            options={qData.questions[activeIndex].options}
             index={activeIndex}
+            activeFront={activeFront}
+            setActiveFront={setActiveFront}
           />
         </div>
         <div className="btnContainer">
-          <button onClick={() => setActiveIndex(activeIndex - 1)}>Prev</button>
-          <button onClick={() => setActiveIndex(activeIndex + 1)}>Next</button>
-
-          {revealAnswer ? (
-            <div>{qData.questions[activeIndex].options}</div>
-          ) : null}
-          <button onClick={() => setRevealAnswer(!revealAnswer)}>Answer</button>
+          <button onClick={handlePrev}>Prev</button>
+          <button onClick={() => setActiveFront(!activeFront)}>Answer</button>
+          <button onClick={handleNext}>Next</button>
         </div>
       </div>
     </div>

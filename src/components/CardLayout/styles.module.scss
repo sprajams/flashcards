@@ -10,3 +10,41 @@
   flex-direction: column;
   justify-content: space-between;
 }
+
+.topWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgb(0, 0, 0, 0.7);
+  font-size: 1.2rem;
+  & * {
+    font-weight: 500;
+  }
+}
+
+.infoSmall {
+  font-size: 1.15rem;
+  color: rgb(0, 0, 0, 0.6);
+}
+
+.mainWrap {
+  font-size: 1.25rem;
+  min-height: 200px;
+}
+
+.answerWrap {
+  font-size: 1.6rem;
+  padding-left: 30px;
+  font-weight: 500;
+}
+
+.bottomWrap {
+  display: flex;
+  justify-content: center;
+}
+.answerBtnWrap {
+  cursor: pointer;
+  &:hover {
+    color: rgb(0, 0, 0, 0.8);
+  }
+}
