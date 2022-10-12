@@ -8,7 +8,7 @@ function App() {
   const [activeFront, setActiveFront] = useState(true);
   const handleNext = () => {
     setActiveFront(true);
-    if (activeIndex < 100) {
+    if (activeIndex < 99) {
       setActiveIndex(activeIndex + 1);
     } else {
       setActiveIndex(0);
