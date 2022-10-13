@@ -1,6 +1,7 @@
 import { useState } from "react";
 import qData from "./assets/output.json";
 import Card from "./components/CardLayout";
+import Button from "./components/Button";
 import "./App.css";
 
 function App() {
@@ -35,9 +36,19 @@ function App() {
           />
         </div>
         <div className="btnContainer">
-          <button onClick={handlePrev}>Prev</button>
-          <button onClick={() => setActiveFront(!activeFront)}>Answer</button>
-          <button onClick={handleNext}>Next</button>
+          <div className="btnTop">
+            <button onClick={() => setActiveFront(!activeFront)}>
+              {activeFront ? "Answer" : "Question"}
+            </button>
+          </div>
+          <div className="btnBottom">
+            <button className="btn" onClick={handlePrev}>
+              Prev
+            </button>
+            <button className="btn" onClick={handleNext}>
+              Next
+            </button>
+          </div>
         </div>
       </div>
     </div>
