@@ -1,12 +1,15 @@
 import { useState } from "react";
 import qData from "./assets/output.json";
 import Card from "./components/CardLayout";
+import { useSelector } from "react-redux";
 import "./App.css";
 
 function App() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [activeFront, setActiveFront] = useState(true);
 
+  const bookmarks = useSelector((state) => state.bookmarks);
+  console.log(bookmarks);
   const handleNext = () => {
     setActiveFront(true);
     if (activeIndex < 99) {

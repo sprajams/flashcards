@@ -40,10 +40,13 @@
 
 .bottomWrap {
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 .answerBtnWrap {
   cursor: pointer;
+  border: none;
+  background-color: inherit;
   &:hover {
     color: rgb(0, 0, 0, 0.8);
   }

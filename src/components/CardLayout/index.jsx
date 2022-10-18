@@ -1,5 +1,7 @@
 import clsx from "clsx";
 import styles from "./styles.module.scss";
+import { useDispatch } from "react-redux";
+import { add, remove } from "../../store/bookmarksSlice";
 
 const CardLayout = ({
   question,
@@ -8,6 +10,15 @@ const CardLayout = ({
   activeFront,
   setActiveFront,
 }) => {
+  const dispatch = useDispatch();
+
+  const handleBookmark = () => {
+    dispatch(add({ index: index }));
+  };
+  const handleUnbookmark = () => {
+    dispatch(remove({ index: index }));
+  };
+
   return (
     <div className={styles.outer}>
       <div className={styles.topWrap}>
@@ -36,12 +47,30 @@ const CardLayout = ({
       </div>
 
       <div className={styles.bottomWrap}>
-        <div
+        <button
           className={clsx(styles.infoSmall, styles.answerBtnWrap)}
           onClick={() => setActiveFront(!activeFront)}
         >
           {activeFront ? "Show Answer" : "Show Question"}
-        </div>
+        </button>
+        {activeFront ? (
+          ""
+        ) : (
+          <>
+            <button
+              className={clsx(styles.infoSmall, styles.answerBtnWrap)}
+              onClick={handleBookmark}
+            >
+              bookmark
+            </button>
+            <button
+              className={clsx(styles.infoSmall, styles.answerBtnWrap)}
+              onClick={handleUnbookmark}
+            >
+              unbookmark
+            </button>
+          </>
+        )}
       </div>
     </div>
   );
