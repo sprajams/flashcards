@@ -63,7 +63,7 @@ A: Principles of American Democracy
 - Government must obey the law.
 - No one is above the law.
 
-  B: System of Government
+B: System of Government
 
 13. Name one branch or part of the government.
 
@@ -245,7 +245,7 @@ A: Principles of American Democracy
 
 - Visit uscis.gov/citizenship/testupdates for the name of the Speaker of the House of Representatives.
 
-  C: Rights and Responsibilities
+C: Rights and Responsibilities
 
 48. There are four amendments to the Constitution about who can vote. Describe one of them.
 
@@ -438,7 +438,8 @@ B: 1800s
 
 - fought for women’s rights
 - fought for civil rights
-  C: Recent American History and Other Important Historical Information
+
+C: Recent American History and Other Important Historical Information
 
 78. Name one war fought by the United States in the 1900s.
 
@@ -580,7 +581,8 @@ B: Symbols
 98. What is the name of the national anthem?
 
 - The Star-Spangled Banner
-  C: Holidays
+
+C: Holidays
 
 99. When do we celebrate Independence Day?
 
