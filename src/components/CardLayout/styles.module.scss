@@ -9,6 +9,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: flex-start;
 }
 
 .topWrap {
@@ -42,12 +43,26 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: 0 auto;
 }
 .answerBtnWrap {
   cursor: pointer;
-  border: none;
   background-color: inherit;
+  height: 50px;
+  border: none;
   &:hover {
-    color: rgb(0, 0, 0, 0.8);
+    color: rgb(0, 0, 0, 0.9);
   }
+}
+.iconWrap {
+  width: fit-content;
+  padding: 0;
+  margin: 0 auto;
+  width: 32px;
+  height: 32px;
+}
+.icon {
+  height: 100%;
+  padding: 0;
+  z-index: 1;
 }
