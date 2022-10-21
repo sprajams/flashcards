@@ -10,6 +10,7 @@ const CardLayout = ({
   index,
   activeFront,
   setActiveFront,
+  totalQ,
 }) => {
   const dispatch = useDispatch();
 
@@ -28,8 +29,10 @@ const CardLayout = ({
       <div className={styles.topWrap}>
         {activeFront ? (
           <>
-            <h4>Question:</h4>
-            <span className={styles.infoSmall}>{index + 1} / 100</span>
+            <h4>Question: </h4>
+            <span className={styles.infoSmall}>
+              {index + 1} / {totalQ}
+            </span>
           </>
         ) : (
           <h4>{question}</h4>
