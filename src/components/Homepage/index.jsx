@@ -1,6 +1,7 @@
-const Homepage = ({ setStart, setDataBreakpoint }) => {
+import { Link } from "react-router-dom";
+
+const Homepage = ({ setDataBreakpoint }) => {
   const handleSelection = (start, end) => {
-    setStart(true);
     setDataBreakpoint(() => {
       return { start: start, end: end };
     });
@@ -14,7 +15,7 @@ const Homepage = ({ setStart, setDataBreakpoint }) => {
       {/* questions 1-57 */}
       <li>
         <button onClick={() => handleSelection(0, 56)}>
-          Category 1: AMERICAN GOVERNMENT
+          <Link to="/card"> Category 1: AMERICAN GOVERNMENT</Link>
         </button>
       </li>
       {/* questions 58-87 */}

@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import CardLayout from "../CardLayout";
 
-const CardMain = ({ data, setStart }) => {
+const CardMain = ({ data }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [activeFront, setActiveFront] = useState(true);
   console.log(activeIndex);
@@ -35,12 +36,8 @@ const CardMain = ({ data, setStart }) => {
   return (
     <div className="outer">
       <div className="inner">
-        <button
-          onClick={() => {
-            setStart(false);
-          }}
-        >
-          back
+        <button>
+          <Link to="/">back</Link>
         </button>
         <>
           <div className="contentContainer">

@@ -2,14 +2,13 @@ import { useState } from "react";
 import qData from "./assets/output.json";
 import CardMain from "./components/CardMain";
 import Homepage from "./components/Homepage";
-import { useSelector } from "react-redux";
+import { Routes, Route } from "react-router-dom";
+// import { useSelector } from "react-redux";
 import "./App.css";
 
 function App() {
-  const bookmarks = useSelector((state) => state.bookmarks);
-  console.log(bookmarks);
-
-  const [start, setStart] = useState(false);
+  //   const bookmarks = useSelector((state) => state.bookmarks);
+  // console.log(bookmarks)
   const [dataBreakpoint, setDataBreakpoint] = useState({ start: 0, end: 10 });
 
   const dataSlice = qData.questions.slice(
@@ -19,11 +18,13 @@ function App() {
   return (
     <div className="outer">
       <div className="inner">
-        {start ? (
-          <CardMain setStart={setStart} data={dataSlice} />
-        ) : (
-          <Homepage setStart={setStart} setDataBreakpoint={setDataBreakpoint} />
-        )}
+        <Routes>
+          <Route
+            path="/"
+            element={<Homepage setDataBreakpoint={setDataBreakpoint} />}
+          />
+          <Route path="/card" element={<CardMain data={dataSlice} />} />
+        </Routes>
       </div>
     </div>
   );
