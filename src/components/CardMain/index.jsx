@@ -5,7 +5,6 @@ import CardLayout from "../CardLayout";
 const CardMain = ({ data }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [activeFront, setActiveFront] = useState(true);
-  console.log(activeIndex);
   const handleNext = () => {
     setActiveFront(true);
     if (activeIndex < data.length - 1) {
@@ -36,9 +35,8 @@ const CardMain = ({ data }) => {
   return (
     <div className="outer">
       <div className="inner">
-        <button>
-          <Link to="/">back</Link>
-        </button>
+        <Link to="/">back</Link>
+
         <>
           <div className="contentContainer">
             <CardLayout

@@ -3,6 +3,7 @@ import qData from "./assets/output.json";
 import CardMain from "./components/CardMain";
 import Homepage from "./components/Homepage";
 import { Routes, Route } from "react-router-dom";
+import Category from "./components/Category";
 // import { useSelector } from "react-redux";
 import "./App.css";
 
@@ -15,6 +16,7 @@ function App() {
     dataBreakpoint.start,
     dataBreakpoint.end + 1
   );
+
   return (
     <div className="outer">
       <div className="inner">
@@ -23,7 +25,9 @@ function App() {
             path="/"
             element={<Homepage setDataBreakpoint={setDataBreakpoint} />}
           />
-          <Route path="/category/:id" element={<CardMain data={dataSlice} />} />
+          <Route path="category">
+            <Route path=":categoryId" element={<Category data={dataSlice} />} />
+          </Route>
         </Routes>
       </div>
     </div>
