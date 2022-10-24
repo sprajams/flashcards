@@ -23,7 +23,7 @@ function App() {
             path="/"
             element={<Homepage setDataBreakpoint={setDataBreakpoint} />}
           />
-          <Route path="/card" element={<CardMain data={dataSlice} />} />
+          <Route path="/category/:id" element={<CardMain data={dataSlice} />} />
         </Routes>
       </div>
     </div>

@@ -15,23 +15,25 @@ const Homepage = ({ setDataBreakpoint }) => {
       {/* questions 1-57 */}
       <li>
         <button onClick={() => handleSelection(0, 56)}>
-          <Link to="/card"> Category 1: AMERICAN GOVERNMENT</Link>
+          <Link to="/category/1"> Category 1: AMERICAN GOVERNMENT</Link>
         </button>
       </li>
       {/* questions 58-87 */}
       <li>
         <button onClick={() => handleSelection(57, 86)}>
-          Category 2: AMERICAN HISTORY
+          <Link to="/category/2"> Category 2: AMERICAN HISTORY</Link>
         </button>
       </li>
       {/* questions: 88-100 */}
       <li>
         <button onClick={() => handleSelection(87, 99)}>
-          Category 3: OTHER
+          <Link to="/category/3"> Category 3: OTHER</Link>
         </button>
       </li>
       <li>
-        <button onClick={() => handleSelection(0, 99)}>All</button>
+        <button onClick={() => handleSelection(0, 99)}>
+          <Link to="/category/all">All</Link>
+        </button>
       </li>
       <li>
         {/* TODO: randomize 10 questions */}
