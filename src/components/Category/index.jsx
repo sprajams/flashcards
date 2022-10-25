@@ -12,7 +12,11 @@ const Category = () => {
       {data.length > 0 ? (
         <ul>
           {data.map((x, i) => {
-            return <li key={i}>{x.question}</li>;
+            return (
+              <li key={i}>
+                <Link to={`/card/${x.id}`}>{x.question}</Link>
+              </li>
+            );
           })}
         </ul>
       ) : null}

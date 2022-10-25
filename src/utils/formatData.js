@@ -14,10 +14,14 @@ fs.readFile(filename, "utf8", function (err, data) {
   const regexoptions = /^(-\s)(.+)/;
   const testBank = [];
   let current = {};
-  arr.forEach((item) => {
+  let idNum = 1;
+  arr.forEach((item, index) => {
     let matchedQuestion = item.match(regexQuestion);
     let matchedOptions = item.match(regexoptions);
     if (current.question && matchedQuestion) {
+      // unique id
+      current.id = idNum;
+      idNum++;
       testBank.push(current);
       current = {};
     }
@@ -25,7 +29,7 @@ fs.readFile(filename, "utf8", function (err, data) {
     if (matchedQuestion) {
       current.question = matchedQuestion[2];
     }
-    // optionss
+    // options
     if (matchedOptions) {
       if (!current.options) {
         current.options = [];
@@ -35,7 +39,8 @@ fs.readFile(filename, "utf8", function (err, data) {
   });
   //   handle adding on the last question/answer
   testBank.push(current);
-
+  // unique id
+  current.id = idNum;
   const questionData = { questions: testBank };
 
   fs.writeFile(

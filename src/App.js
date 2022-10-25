@@ -28,6 +28,9 @@ function App() {
           <Route path="category">
             <Route path=":categoryId" element={<Category data={dataSlice} />} />
           </Route>
+          <Route path="card">
+            <Route path=":cardId" element={<CardMain />} />
+          </Route>
         </Routes>
       </div>
     </div>
