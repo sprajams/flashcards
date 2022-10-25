@@ -14,7 +14,7 @@ const Category = () => {
           {data.map((x, i) => {
             return (
               <li key={i}>
-                <Link to={`/card/${x.id}`}>{x.question}</Link>
+                <Link to={`${i + 1}`}>{x.question}</Link>
               </li>
             );
           })}

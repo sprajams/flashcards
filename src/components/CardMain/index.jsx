@@ -1,37 +1,16 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import CardLayout from "../CardLayout";
+import groups from "../../assets/grouped";
 
-const CardMain = ({ data }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
+const CardMain = () => {
+  const { categoryId, cardIndex } = useParams();
+  const data = groups[categoryId].data ?? []; //
+  const activeIndex = parseInt(cardIndex, 10);
+  const adjustedIndex = activeIndex - 1;
+
   const [activeFront, setActiveFront] = useState(true);
-  const handleNext = () => {
-    setActiveFront(true);
-    if (activeIndex < data.length - 1) {
-      setActiveIndex(activeIndex + 1);
-    } else {
-      setActiveIndex(0);
-    }
-  };
 
-  const handlePrev = () => {
-    setActiveFront(true);
-    if (activeIndex === 0) {
-      setActiveIndex(data.length - 1);
-    } else {
-      setActiveIndex(activeIndex - 1);
-    }
-  };
-
-  const handleRefresh = () => {
-    setActiveFront(true);
-    setActiveIndex(0);
-  };
-
-  const handleRandom = () => {
-    setActiveFront(true);
-    setActiveIndex(Math.floor(Math.random() * data.length));
-  };
   return (
     <div className="outer">
       <div className="inner">
@@ -40,9 +19,9 @@ const CardMain = ({ data }) => {
         <>
           <div className="contentContainer">
             <CardLayout
-              question={data[activeIndex].question}
-              options={data[activeIndex].options}
-              index={activeIndex}
+              question={data[adjustedIndex].question}
+              options={data[adjustedIndex].options}
+              index={adjustedIndex}
               totalQ={data.length}
               activeFront={activeFront}
               setActiveFront={setActiveFront}
@@ -50,7 +29,12 @@ const CardMain = ({ data }) => {
           </div>
           <div className="btnContainer">
             <div className="btnBottom">
-              <button className="btn" onClick={handlePrev}>
+              <Link
+                className="btn"
+                to={`/category/${categoryId}/${
+                  activeIndex === 1 ? data.length : activeIndex - 1
+                }`}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
@@ -64,8 +48,13 @@ const CardMain = ({ data }) => {
                   />
                 </svg>
                 <span>Prev</span>
-              </button>
-              <button className="btn" onClick={handleNext}>
+              </Link>
+              <Link
+                className="btn"
+                to={`/category/${categoryId}/${
+                  activeIndex === data.length ? 1 : activeIndex + 1
+                }`}
+              >
                 <span>Next</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -79,11 +68,11 @@ const CardMain = ({ data }) => {
                     clipRule="evenodd"
                   />
                 </svg>
-              </button>
+              </Link>
             </div>
 
             <div className="btnTop">
-              <button className="btn btn--small" onClick={handleRefresh}>
+              <Link className="btn" to={`/category/${categoryId}/1`}>
                 {/* refresh button */}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -97,16 +86,22 @@ const CardMain = ({ data }) => {
                     clipRule="evenodd"
                   />
                 </svg>
-              </button>
+              </Link>
+
               <button
                 className="btn"
                 onClick={() => setActiveFront(!activeFront)}
               >
                 {activeFront ? "Answer" : "Question"}
               </button>
-              <button className="btn btn--small" onClick={handleRandom}>
+              <Link
+                className="btn"
+                to={`/category/${categoryId}/${Math.floor(
+                  Math.random() * data.length + 1
+                )}`}
+              >
                 Random
-              </button>
+              </Link>
             </div>
           </div>
         </>
