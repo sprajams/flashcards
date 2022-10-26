@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import CardLayout from "../CardLayout";
 import groups from "../../assets/grouped";
+import BackLink from "../BackLink";
 import styles from "./styles.module.scss";
 
 const CardMain = () => {
@@ -14,7 +15,7 @@ const CardMain = () => {
 
   return (
     <div className={styles.cardWrap}>
-      <Link to="/">back</Link>
+      <BackLink />
       <>
         <div className={styles.contentContainer}>
           <CardLayout

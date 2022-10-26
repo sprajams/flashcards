@@ -10,7 +10,7 @@
 }
 
 .btnContainer {
-  margin-top: 20px;
+  margin-top: 8px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -43,6 +43,7 @@
   text-decoration: none;
   border-radius: 4px;
   color: inherit;
+  gap: 8px;
 }
 .icon {
   height: 100%;
