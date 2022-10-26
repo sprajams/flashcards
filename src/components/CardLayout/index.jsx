@@ -63,7 +63,7 @@ const CardLayout = ({
         {activeFront ? (
           ""
         ) : (
-          <>
+          <div className={styles.actionBtnWrap}>
             <button
               className={clsx(
                 styles.infoSmall,
@@ -159,7 +159,7 @@ const CardLayout = ({
                 </svg>
               </button>
             )}
-          </>
+          </div>
         )}
       </div>
     </div>
