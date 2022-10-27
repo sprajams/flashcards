@@ -10,6 +10,10 @@ const Category = () => {
       <BackLink />
 
       <h2>Category: {groups[categoryId].title}</h2>
+      {/* to just begin studying all cards */}
+      <Link to="1">
+        <h3>Start</h3>
+      </Link>
       {data.length > 0 ? (
         <ul>
           {data.map((x, i) => {
