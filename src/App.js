@@ -2,13 +2,9 @@ import CardMain from "./components/CardMain";
 import Homepage from "./components/Homepage";
 import { Routes, Route } from "react-router-dom";
 import Category from "./components/Category";
-// import { useSelector } from "react-redux";
 import "./App.css";
 
 function App() {
-  //   const bookmarks = useSelector((state) => state.bookmarks);
-  // console.log(bookmarks)
-
   return (
     <div className="outer">
       <div className="inner">

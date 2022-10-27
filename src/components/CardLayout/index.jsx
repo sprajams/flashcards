@@ -1,8 +1,7 @@
 import clsx from "clsx";
 import styles from "./styles.module.scss";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { add, remove } from "../../store/bookmarksSlice";
-import { useState } from "react";
 
 const CardLayout = ({
   question,
@@ -11,19 +10,20 @@ const CardLayout = ({
   activeFront,
   setActiveFront,
   totalQ,
+  cardId,
 }) => {
+  // get state of bookmarks
+  const bookmarkState = useSelector((state) => state.bookmarks);
   const dispatch = useDispatch();
-
   const handleBookmark = () => {
-    dispatch(add({ index: index }));
-    setIsBookmarked(true);
+    dispatch(add({ index: cardId }));
   };
   const handleUnbookmark = () => {
-    dispatch(remove({ index: index }));
-    setIsBookmarked(false);
+    dispatch(remove({ index: cardId }));
   };
+  // return boolean on if individual card is bookmarked
+  const isBookmarked = bookmarkState.indexOf(cardId) >= 0;
 
-  const [isBookmarked, setIsBookmarked] = useState(false);
   return (
     <div className={styles.outer}>
       <div className={styles.topWrap}>
