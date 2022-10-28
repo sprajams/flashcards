@@ -23,7 +23,7 @@ const Homepage = () => {
         Practice Test
       </li>
       <li>
-        <button>Bookmark</button>
+        <Link to="/bookmark">Bookmark</Link>
       </li>
     </ul>
   );

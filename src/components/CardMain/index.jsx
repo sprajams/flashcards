@@ -4,7 +4,6 @@ import CardLayout from "../CardLayout";
 import groups from "../../assets/grouped";
 import BackLink from "../BackLink";
 import styles from "./styles.module.scss";
-import { useSelector } from "react-redux";
 
 const CardMain = () => {
   const { categoryId, cardIndex } = useParams();
@@ -18,9 +17,6 @@ const CardMain = () => {
   useEffect(() => {
     setActiveFront(true);
   }, [cardIndex, categoryId]);
-
-  const bookmarks = useSelector((state) => state.bookmarks);
-  console.log(bookmarks);
 
   return (
     <div className={styles.cardWrap}>
