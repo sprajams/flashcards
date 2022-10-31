@@ -16,6 +16,7 @@ function App() {
             <Route path=":categoryId/:cardIndex" element={<CardMain />} />
           </Route>
           <Route path="bookmark" element={<Bookmark />} />
+          <Route path="bookmark/:cardIndex" element={<CardMain />} />
         </Routes>
       </div>
     </div>
