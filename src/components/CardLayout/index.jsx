@@ -86,7 +86,7 @@ const CardLayout = ({
             )}
           </div>
         </div>
-        {activeFront ? null : <h3>{question}</h3>}
+        {activeFront ? null : <h3 className={styles.infoBig}>{question}</h3>}
       </div>
 
       <div className={styles.mainWrap}>

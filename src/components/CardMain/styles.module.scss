@@ -5,15 +5,17 @@
 }
 
 .contentContainer {
-  flex-grow: 1;
   margin-bottom: 4px;
+  min-height: 0;
+  flex: 1 1 auto;
 }
 
 .btnContainer {
   display: flex;
   justify-content: center;
   gap: 32px;
-  margin-top: 8px;
+  height: 80px;
+  align-items: center;
 }
 
 .btn {
@@ -33,16 +35,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 80px;
+  width: 60px;
 }
-.icon {
-  width: 100%;
-  height: 100%;
-}
+
 .iconWrap {
   margin-top: 4px;
-  height: 56px;
-  width: 56px;
+  height: 48px;
+  width: 48px;
   padding: 12px;
   border-radius: 50%;
   border: 1px solid black;

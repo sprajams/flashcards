@@ -1,10 +1,9 @@
 .outer {
   height: 100%;
-  border: 2px solid rgb(195, 228, 195);
   border-radius: 8px;
+  border: 2px solid rgb(195, 228, 195);
   border-top: 16px solid rgb(195, 228, 195);
   border-bottom: 16px solid rgb(195, 228, 195);
-  box-shadow: 2px 2px 4px rgba(133, 156, 133, 0.7);
   background: rgb(255, 248, 220);
   padding: 12px 20px;
   display: flex;
@@ -12,41 +11,57 @@
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
-  gap: 4px;
+  gap: 12px;
 }
 
+// TOP
 .topContainer {
   display: flex;
   flex-direction: column;
   color: rgb(0, 0, 0, 0.7);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   width: 100%;
+  border-bottom: 3px dashed rgb(195, 228, 195);
+  padding-bottom: 12px;
   & * {
     font-weight: 500;
   }
 }
-.topInfo {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+.topInfo,
 .qInfoWrap {
   display: flex;
-  justify-content: center;
   align-items: center;
+}
+.topInfo {
+  justify-content: space-between;
+}
+.qInfoWrap {
+  justify-content: center;
 }
 .infoSmall {
   font-size: 1.1rem;
   color: rgb(0, 0, 0, 0.6);
 }
-
-.mainWrap {
+.infoBig {
+  margin-top: 4px;
   font-size: 1.25rem;
-  height: 325px;
+  line-height: 1.6rem;
+}
+
+// MAIN/MID
+.mainWrap {
+  font-size: 1.3rem;
   width: 100%;
-  padding: 4px;
   overflow-y: scroll;
-  z-index: 1;
+  flex: 1 1 auto;
+  padding: 0;
+}
+.answerWrap {
+  font-size: 1.45rem;
+  padding: 0;
+  padding-left: 28px;
+  font-weight: 500;
+  overflow-y: scroll;
 }
 
 // custom scroll bar
@@ -54,18 +69,20 @@
 ::-webkit-scrollbar {
   width: 8px;
 }
-/* Handle */
+// /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: rgb(173, 172, 172);
   border-radius: 8px;
 }
-
-.answerWrap {
-  font-size: 1.5rem;
-  padding-left: 30px;
-  font-weight: 500;
+::-webkit-scrollbar-thumb:horizontal {
+  background: rgb(173, 172, 172);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-track {
+  display: none;
 }
 
+// BOTTOM
 .bottomWrap {
   display: flex;
   flex-direction: column;
@@ -73,6 +90,8 @@
   margin: 0 auto;
   align-items: center;
   width: 100%;
+  padding-top: 12px;
+  border-top: 3px dashed rgb(195, 228, 195);
 }
 .answerBtnWrap {
   cursor: pointer;
