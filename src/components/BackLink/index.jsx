@@ -3,6 +3,7 @@ import styles from "./styles.module.scss";
 
 const BackLink = () => {
   return (
+    //TODO: try using useHistory to link to previous page and not just root
     <Link className={styles.backLink} to="/">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -16,7 +17,7 @@ const BackLink = () => {
           clipRule="evenodd"
         />
       </svg>
-      back
+      <span>back</span>
     </Link>
   );
 };
