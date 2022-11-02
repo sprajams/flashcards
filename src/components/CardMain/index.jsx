@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import CardLayout from "../CardLayout";
 import groups from "../../assets/grouped";
 import output from "../../assets/output.json";
-import BackLink from "../BackLink";
 import styles from "./styles.module.scss";
 
 const CardMain = () => {
@@ -15,15 +14,8 @@ const CardMain = () => {
 
   const [activeFront, setActiveFront] = useState(true);
 
-  // TODO: is there a better to make sure front of card is displayed when going to next card
-  useEffect(() => {
-    setActiveFront(true);
-  }, [cardIndex, categoryId]);
-
   return (
     <div className={styles.cardWrap}>
-      <BackLink />
-
       <div className={styles.contentContainer}>
         <CardLayout
           question={data[adjustedIndex].question}
@@ -52,7 +44,7 @@ const CardMain = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
-                  className="w-5 h-5 icon"
+                  className="w-5 h-5"
                 >
                   <path
                     fillRule="evenodd"
@@ -78,7 +70,7 @@ const CardMain = () => {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-6 h-6 icon"
+                  className="w-6 h-6 "
                 >
                   <path
                     strokeLinecap="round"
@@ -103,7 +95,7 @@ const CardMain = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
-                  className="w-5 h-5 icon"
+                  className="w-5 h-5 "
                 >
                   <path
                     fillRule="evenodd"

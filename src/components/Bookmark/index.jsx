@@ -1,4 +1,3 @@
-import BackLink from "../BackLink";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import output from "../../assets/output.json";
@@ -8,7 +7,6 @@ const Bookmark = () => {
 
   return (
     <div>
-      <BackLink />
       <h1>BOOKMARK</h1>
       {bookmarks.length > 0 ? (
         <ul>
