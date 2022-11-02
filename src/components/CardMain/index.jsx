@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import CardLayout from "../CardLayout";
 import groups from "../../assets/grouped";
@@ -13,11 +13,6 @@ const CardMain = () => {
   const adjustedIndex = activeIndex - 1;
 
   const [activeFront, setActiveFront] = useState(true);
-
-  // TODO: is there a better to make sure front of card is displayed when going to next card
-  useEffect(() => {
-    setActiveFront(true);
-  }, [cardIndex, categoryId]);
 
   return (
     <div className={styles.cardWrap}>
