@@ -18,13 +18,13 @@ const Homepage = () => {
       <li>
         <Link to="/category/all">All</Link>
       </li>
-      <li>
-        {/* TODO: randomize 10 questions */}
-        Practice Test
+      {/* <li> */}
+      {/* TODO: randomize 10 questions */}
+      {/* Practice Test
       </li>
       <li>
         <Link to="/bookmark">Bookmark</Link>
-      </li>
+      </li> */}
     </ul>
   );
 };

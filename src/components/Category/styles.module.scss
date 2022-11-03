@@ -1,0 +1,47 @@
+.title {
+  position: sticky;
+  top: 0;
+  background: white;
+  padding: 16px 0;
+  z-index: 1;
+  @media (prefers-color-scheme: dark) {
+    background: var(--color-bg);
+    color: white;
+  }
+}
+.listWrap {
+  padding: 8px 2px 8px 0;
+  list-style: none;
+}
+
+.startBtn {
+  border-radius: 16px;
+  background: rgb(45, 120, 45);
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  margin: 0 auto;
+  margin-bottom: 16px;
+}
+.btnLink {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 12px 16px;
+  border-radius: 16px;
+  &:hover {
+    padding: 11px 15px;
+    border: 1px solid white;
+  }
+}
+
+.questionWrap {
+  border-bottom: 1px dashed rgba(208, 205, 205, 0.4);
+  padding: 1.2em 1.75em;
+}
+.questionWrap:first-child {
+  border-top: 1px dashed rgba(208, 205, 205, 0.4);
+}

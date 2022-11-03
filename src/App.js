@@ -4,7 +4,7 @@ import { Routes, Route, useHref } from "react-router-dom";
 import Category from "./components/Category";
 import Bookmark from "./components/Bookmark";
 import BackLink from "./components/BackLink";
-import "./App.css";
+import "./App.scss";
 
 function App() {
   const routeKey = useHref(); //return the current URL which changes on navigation
