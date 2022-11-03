@@ -21,7 +21,9 @@ const Category = () => {
           {data.map((x, i) => {
             return (
               <li key={i} className={styles.questionWrap}>
-                <Link to={`${i + 1}`}>{x.question}</Link>
+                <Link to={`${i + 1}`} className={styles.questionLink}>
+                  {x.question}
+                </Link>
               </li>
             );
           })}
