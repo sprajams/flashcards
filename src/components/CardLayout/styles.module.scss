@@ -64,24 +64,6 @@
   overflow-y: scroll;
 }
 
-// custom scroll bar
-/* width */
-::-webkit-scrollbar {
-  width: 8px;
-}
-// /* Handle */
-::-webkit-scrollbar-thumb {
-  background: rgb(173, 172, 172);
-  border-radius: 8px;
-}
-::-webkit-scrollbar-thumb:horizontal {
-  background: rgb(173, 172, 172);
-  border-radius: 8px;
-}
-::-webkit-scrollbar-track {
-  display: none;
-}
-
 // BOTTOM
 .bottomWrap {
   display: flex;
@@ -100,11 +82,14 @@
   border: none;
   border-radius: 8px;
   padding: 0 8px;
-  &:hover {
-    color: rgb(0, 0, 0, 0.9);
-    text-decoration: underline;
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: rgb(0, 0, 0, 0.9);
+      text-decoration: underline;
+    }
   }
 }
+
 .iconWrap {
   width: fit-content;
   padding: 0;

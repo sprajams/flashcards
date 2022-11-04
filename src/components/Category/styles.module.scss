@@ -6,7 +6,7 @@
   z-index: 1;
   @media (prefers-color-scheme: dark) {
     background: var(--color-bg);
-    color: white;
+    color: var(--color-text);
   }
 }
 .listWrap {
@@ -16,7 +16,7 @@
 
 .startBtn {
   border-radius: 16px;
-  background: rgb(45, 120, 45);
+  background: rgb(24, 68, 24);
   width: 200px;
   display: flex;
   justify-content: center;
@@ -32,9 +32,8 @@
   text-align: center;
   padding: 12px 16px;
   border-radius: 16px;
-  &:hover {
-    padding: 11px 15px;
-    border: 1px dashed white;
+  @media (prefers-color-scheme: dark) {
+    color: rgb(215, 215, 215);
   }
 }
 
@@ -49,9 +48,6 @@
 }
 .questionLink {
   @media (prefers-color-scheme: dark) {
-    color: rgb(186, 186, 186);
-    &:hover {
-      color: var(--color-text);
-    }
+    color: rgb(180, 180, 180);
   }
 }

@@ -41,13 +41,15 @@
 
 .iconWrap {
   margin-top: 4px;
-  height: 48px;
-  width: 48px;
+  height: 44px;
+  width: 44px;
   padding: 12px;
   border-radius: 50%;
-  border: 1px solid black;
   display: block;
-  &:hover {
-    background: rgb(195, 228, 195);
+  border: 1px solid var(--color-text);
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      border: 1px dashed var(--color-text);
+    }
   }
 }

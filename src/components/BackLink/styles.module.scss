@@ -1,18 +1,9 @@
 .backLink {
   margin-bottom: 8px;
-  // color: rgba(0, 0, 0, 0.6);
   text-transform: capitalize;
   text-decoration: none;
   height: 24px;
   width: 52px;
   display: flex;
   align-items: center;
-  // @media (prefers-color-scheme: dark) {
-  //   background: black;
-  //   color: white;
-  // }
-  &:hover {
-    text-decoration: underline;
-    // color: rgba(0, 0, 0, 0.75);
-  }
 }
