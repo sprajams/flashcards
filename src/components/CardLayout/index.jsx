@@ -28,10 +28,10 @@ const CardLayout = ({
   return (
     <div className={styles.outer}>
       <div className={styles.topContainer}>
-        <div className={styles.topInfo}>
+        <div className={clsx(styles.topInfo, styles.infoSmall)}>
           <h4>Question: </h4>
           <div className={styles.qInfoWrap}>
-            <span className={styles.infoSmall}>
+            <span>
               {index + 1} / {totalQ}
             </span>
             {/* bookmark icon/button */}

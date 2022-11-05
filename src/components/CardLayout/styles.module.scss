@@ -1,10 +1,7 @@
 .outer {
   height: 100%;
   border-radius: 8px;
-  border: 2px solid rgb(195, 228, 195);
-  border-top: 16px solid rgb(195, 228, 195);
-  border-bottom: 16px solid rgb(195, 228, 195);
-  background: rgb(255, 248, 220);
+
   padding: 12px 20px;
   display: flex;
   flex-direction: column;
@@ -12,16 +9,21 @@
   align-items: flex-start;
   width: 100%;
   gap: 12px;
+  color: var(--color-text);
+
+  @media (prefers-color-scheme: dark) {
+    background: rgb(44, 54, 57);
+    border-top: 16px solid rgb(107, 82, 62);
+    border-bottom: 16px solid rgb(107, 82, 62);
+  }
 }
 
 // TOP
 .topContainer {
   display: flex;
   flex-direction: column;
-  color: rgb(0, 0, 0, 0.7);
   font-size: 1.1rem;
   width: 100%;
-  border-bottom: 3px dashed rgb(195, 228, 195);
   padding-bottom: 12px;
   & * {
     font-weight: 500;
@@ -40,7 +42,7 @@
 }
 .infoSmall {
   font-size: 1.1rem;
-  color: rgb(0, 0, 0, 0.6);
+  color: rgba(198, 180, 165, 0.95);
 }
 .infoBig {
   margin-top: 4px;
@@ -73,7 +75,6 @@
   align-items: center;
   width: 100%;
   padding-top: 12px;
-  border-top: 3px dashed rgb(195, 228, 195);
 }
 .answerBtnWrap {
   cursor: pointer;
@@ -84,7 +85,6 @@
   padding: 0 8px;
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      color: rgb(0, 0, 0, 0.9);
       text-decoration: underline;
     }
   }

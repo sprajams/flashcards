@@ -2,7 +2,7 @@
   --color-text: #000;
   --color-bg: #fff;
   @media (prefers-color-scheme: dark) {
-    --color-text: #fff;
+    --color-text: rgb(243, 235, 214);
     --color-bg: rgb(18, 18, 18);
     background: var(--color-bg);
     color: var(--color-text);
