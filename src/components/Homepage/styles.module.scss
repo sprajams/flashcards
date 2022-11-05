@@ -1,0 +1,25 @@
+.title {
+  padding: 16px 0;
+}
+
+.linkContainer {
+  padding: 0;
+  list-style: none;
+  margin-top: 16px;
+}
+
+.linkWrap {
+  border-radius: 8px;
+  display: flex;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+
+.link {
+  width: 100%;
+  height: 100%;
+  padding: 1em 1.5em;
+  font-size: 1.2rem;
+  border: 2px solid rgb(107, 82, 62);
+  border-radius: 8px;
+}
