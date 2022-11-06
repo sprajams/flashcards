@@ -56,7 +56,4 @@
 }
 .questionLink {
   color: var(--color-text-secondary);
-  @media (prefers-color-scheme: dark) {
-    color: rgb(180, 180, 180);
-  }
 }

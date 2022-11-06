@@ -4,7 +4,7 @@
   --color-bg-primary: rgb(245, 245, 245);
   @media (prefers-color-scheme: dark) {
     --color-text-primary: rgb(243, 235, 214);
-    --color-text-secondary: rgba(197, 179, 165, 0.95);
+    --color-text-secondary: rgb(189, 180, 170);
     --color-bg-primary: rgb(18, 18, 18);
     background: var(--color-bg-primary);
     color: var(--color-text-primary);
