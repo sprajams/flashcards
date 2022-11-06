@@ -15,7 +15,6 @@
   display: flex;
   justify-content: center;
   gap: 32px;
-  height: 80px;
   align-items: center;
 }
 
@@ -46,10 +45,10 @@
   padding: 12px;
   border-radius: 50%;
   display: block;
-  border: 1px solid var(--color-text);
+  border: 1px solid var(--color-text-primary);
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      border: 1px dashed var(--color-text);
+      border: 1px dashed var(--color-text-primary);
     }
   }
 }

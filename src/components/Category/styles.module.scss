@@ -1,13 +1,10 @@
 .title {
   position: sticky;
   top: 0;
-  background: white;
   padding: 16px 0;
   z-index: 1;
-  @media (prefers-color-scheme: dark) {
-    background: var(--color-bg);
-    color: var(--color-text);
-  }
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
 }
 .listWrap {
   padding: 8px 2px 8px 0;
@@ -16,7 +13,7 @@
 
 .startBtn {
   border-radius: 16px;
-  background: rgb(21, 61, 21);
+  background: rgb(57, 155, 57);
   width: 200px;
   display: flex;
   justify-content: center;
@@ -25,6 +22,10 @@
   text-transform: uppercase;
   margin: 0 auto;
   margin-bottom: 16px;
+  @media (prefers-color-scheme: dark) {
+    background: rgb(21, 61, 21);
+    color: var(--color-text-primary);
+  }
 }
 .btnLink {
   width: 100%;
@@ -32,19 +33,29 @@
   text-align: center;
   padding: 12px 16px;
   border-radius: 16px;
-  color: var(--color-text);
+  color: rgb(36, 30, 25);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-text-primary);
+  }
 }
 
 .questionWrap {
-  border-bottom: 2px dashed rgb(50, 50, 50);
+  border-bottom: 2px dashed rgba(97, 64, 53, 0.2);
   padding: 1em 1.4em;
   font-size: 1.1rem;
   overflow-y: scroll;
+  @media (prefers-color-scheme: dark) {
+    border-bottom: 2px dashed rgb(50, 50, 50);
+  }
 }
 .questionWrap:first-child {
-  border-top: 2px dashed rgb(50, 50, 50);
+  border-top: 2px dashed rgba(97, 64, 53, 0.2);
+  @media (prefers-color-scheme: dark) {
+    border-top: 2px dashed rgb(50, 50, 50);
+  }
 }
 .questionLink {
+  color: var(--color-text-secondary);
   @media (prefers-color-scheme: dark) {
     color: rgb(180, 180, 180);
   }

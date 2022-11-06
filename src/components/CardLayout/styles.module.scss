@@ -1,7 +1,6 @@
 .outer {
   height: 100%;
   border-radius: 8px;
-
   padding: 12px 20px;
   display: flex;
   flex-direction: column;
@@ -9,8 +8,10 @@
   align-items: flex-start;
   width: 100%;
   gap: 12px;
-  color: var(--color-text);
-
+  color: var(--color-text-primary);
+  background: rgb(236, 236, 236);
+  border-top: 16px solid rgb(75, 81, 133);
+  border-bottom: 16px solid rgb(75, 81, 133);
   @media (prefers-color-scheme: dark) {
     background: rgb(44, 54, 57);
     border-top: 16px solid rgb(107, 82, 62);
@@ -42,7 +43,11 @@
 }
 .infoSmall {
   font-size: 1.1rem;
-  color: rgba(198, 180, 165, 0.95);
+  color: rgba(34, 34, 34, 0.95);
+  color: rgb(93, 93, 93);
+  @media (prefers-color-scheme: dark) {
+    color: rgba(197, 179, 165, 0.95);
+  }
 }
 .infoBig {
   margin-top: 4px;

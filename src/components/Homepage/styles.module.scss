@@ -20,6 +20,10 @@
   height: 100%;
   padding: 1em 1.5em;
   font-size: 1.2rem;
-  border: 2px solid rgb(107, 82, 62);
+  border: 2px solid var(--color-text-primary);
   border-radius: 8px;
+  color: var(--color-text-secondary);
+  @media (prefers-color-scheme: dark) {
+    border: 2px solid rgb(69, 52, 39);
+  }
 }

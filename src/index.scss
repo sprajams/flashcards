@@ -1,11 +1,13 @@
 :root {
-  --color-text: #000;
-  --color-bg: #fff;
+  --color-text-primary: rgb(71, 40, 40);
+  --color-text-secondary: rgb(111, 75, 46);
+  --color-bg-primary: rgb(245, 245, 245);
   @media (prefers-color-scheme: dark) {
-    --color-text: rgb(243, 235, 214);
-    --color-bg: rgb(18, 18, 18);
-    background: var(--color-bg);
-    color: var(--color-text);
+    --color-text-primary: rgb(243, 235, 214);
+    --color-text-secondary: rgba(197, 179, 165, 0.95);
+    --color-bg-primary: rgb(18, 18, 18);
+    background: var(--color-bg-primary);
+    color: var(--color-text-primary);
   }
 }
 #root {
@@ -18,8 +20,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--color-bg);
-  color: var(--color-text);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
 }
 
 code {
@@ -96,7 +98,7 @@ a {
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       text-decoration: underline;
-      color: var(--color-text);
+      color: var(--color-text-primary);
     }
   }
 }
