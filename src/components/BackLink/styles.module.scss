@@ -6,4 +6,11 @@
   width: 52px;
   display: flex;
   color: var(--color-text-secondary);
+  background: var(--color-bg-primary);
+  border: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
