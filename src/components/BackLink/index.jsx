@@ -1,10 +1,23 @@
-import { Link } from "react-router-dom";
+import { useHref, useNavigate } from "react-router-dom";
 import styles from "./styles.module.scss";
 
 const BackLink = () => {
+  let href = useHref();
+  let navigate = useNavigate();
+  let tempArr = "";
+  const handleBack = () => {
+    tempArr = href.split("/");
+    tempArr.pop();
+    if (tempArr[tempArr.length - 1] === "category") {
+      tempArr = "/";
+    } else {
+      tempArr = tempArr.join("/");
+    }
+    return navigate(tempArr);
+  };
   return (
-    //TODO: try using useHistory to link to previous page and not just root
-    <Link className={styles.backLink} to="/">
+    //TODO: is there a better method than hardcoding?
+    <button className={styles.backLink} onClick={handleBack}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
@@ -18,7 +31,7 @@ const BackLink = () => {
         />
       </svg>
       <span>back</span>
-    </Link>
+    </button>
   );
 };
 
