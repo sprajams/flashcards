@@ -21,7 +21,11 @@
     padding: 24px 32px;
   }
 }
-
+.navbar {
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
 .content {
   flex: 1 1 auto;
   overflow-y: auto;

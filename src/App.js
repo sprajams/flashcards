@@ -8,11 +8,11 @@ import "./App.scss";
 
 function App() {
   const routeKey = useHref(); //return the current URL which changes on navigation
-
+  const isHome = routeKey === "/"; // true when in root
   return (
     <div className="outer">
       <div className="inner">
-        <BackLink />
+        <div className="navbar">{isHome ? null : <BackLink />}</div>
         <div className="content">
           <Routes>
             <Route path="/" element={<Homepage />} />

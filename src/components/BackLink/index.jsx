@@ -15,6 +15,7 @@ const BackLink = () => {
     }
     return navigate(tempArr);
   };
+
   return (
     //TODO: is there a better method than hardcoding?
     <button className={styles.backLink} onClick={handleBack}>
