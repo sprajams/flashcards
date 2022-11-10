@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import CardLayout from "../CardLayout";
 import groups from "../../assets/grouped";
@@ -12,20 +11,14 @@ const CardMain = () => {
   const activeIndex = parseInt(cardIndex, 10);
   const adjustedIndex = activeIndex - 1;
 
-  const [activeFront, setActiveFront] = useState(true);
-
   return (
     <div className={styles.cardWrap}>
       <div className={styles.contentContainer}>
         <CardLayout
-          question={data[adjustedIndex].question}
-          options={data[adjustedIndex].options}
-          cardId={data[adjustedIndex].id}
+          data={data[adjustedIndex]}
           index={adjustedIndex}
           totalQ={data.length}
-          activeFront={activeFront}
           testMode={false}
-          setActiveFront={setActiveFront}
         />
       </div>
       {categoryId ? (
@@ -57,7 +50,7 @@ const CardMain = () => {
           </div>
 
           {/* flip card */}
-          <div className={styles.btnWrap}>
+          {/* <div className={styles.btnWrap}>
             <span> {activeFront ? "Answer" : "Question"}</span>
             <button
               className={styles.btn}
@@ -80,7 +73,7 @@ const CardMain = () => {
                 </svg>
               </span>
             </button>
-          </div>
+          </div> */}
           {/* next */}
           <div className={styles.btnWrap}>
             <span>Next</span>

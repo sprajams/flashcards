@@ -2,17 +2,11 @@ import clsx from "clsx";
 import styles from "./styles.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { add, remove } from "../../store/bookmarksSlice";
+import { useState } from "react";
+const CardLayout = ({ data, index, totalQ, testMode }) => {
+  const { question, options, cardId } = data;
+  const [activeFront, setActiveFront] = useState(true);
 
-const CardLayout = ({
-  question,
-  options,
-  index,
-  activeFront,
-  setActiveFront,
-  totalQ,
-  cardId,
-  testMode,
-}) => {
   // get state of bookmarks
   const bookmarkState = useSelector((state) => state.bookmarks);
   const dispatch = useDispatch();
