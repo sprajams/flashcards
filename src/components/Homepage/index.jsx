@@ -29,11 +29,14 @@ const Homepage = () => {
             All
           </Link>
         </li>
-        {/* <li> */}
+        <li className={styles.linkWrap}>
+          <Link to="/quiz" className={styles.link}>
+            Practice Test
+          </Link>
+        </li>
+
         {/* TODO: randomize 10 questions */}
-        {/* Practice Test
-      </li>
-      <li>
+        {/*  <li>
         <Link to="/bookmark">Bookmark</Link>
       </li> */}
       </ul>

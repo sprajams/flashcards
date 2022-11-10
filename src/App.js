@@ -4,6 +4,7 @@ import { Routes, Route, useHref } from "react-router-dom";
 import Category from "./components/Category";
 import Bookmark from "./components/Bookmark";
 import BackLink from "./components/BackLink";
+import Quiz from "./components/Quiz";
 import "./App.scss";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
                 element={<CardMain key={routeKey} />}
               />
             </Route>
+            <Route path="quiz" element={<Quiz />} />
             <Route path="bookmark" element={<Bookmark />} />
             <Route
               path="bookmark/:cardIndex"
