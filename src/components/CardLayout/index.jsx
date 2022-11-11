@@ -3,6 +3,9 @@ import styles from "./styles.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { add, remove } from "../../store/bookmarksSlice";
 import { useState } from "react";
+import { BsBookmark, BsBookmarkFill } from "react-icons/bs";
+import { HiCheck, HiX } from "react-icons/hi";
+
 const CardLayout = ({ data, index, totalQ, testMode }) => {
   const { question, options, id } = data;
   const [activeFront, setActiveFront] = useState(true);
@@ -30,51 +33,19 @@ const CardLayout = ({ data, index, totalQ, testMode }) => {
             {/* bookmark icon/button */}
             {isBookmarked ? (
               <button
-                className={clsx(
-                  styles.infoSmall,
-                  styles.bookmarkBtn,
-                  styles.iconWrap
-                )}
+                className={clsx(styles.infoSmall, styles.bookmarkBtn)}
                 onClick={handleUnbookmark}
               >
                 {/* bookmarked, filled icon */}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  className="w-5 h-5 icon"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 2c-1.716 0-3.408.106-5.07.31C3.806 2.45 3 3.414 3 4.517V17.25a.75.75 0 001.075.676L10 15.082l5.925 2.844A.75.75 0 0017 17.25V4.517c0-1.103-.806-2.068-1.93-2.207A41.403 41.403 0 0010 2z"
-                    clipRule="evenodd"
-                  />
-                </svg>
+                <BsBookmarkFill className={styles.iconWrap} />
               </button>
             ) : (
               <button
-                className={clsx(
-                  styles.infoSmall,
-                  styles.bookmarkBtn,
-                  styles.iconWrap
-                )}
+                className={clsx(styles.infoSmall, styles.bookmarkBtn)}
                 onClick={handleBookmark}
               >
                 {/* bookmark-able, outlined icon */}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={1}
-                  className="w-5 h-5 icon"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 2c-1.716 0-3.408.106-5.07.31C3.806 2.45 3 3.414 3 4.517V17.25a.75.75 0 001.075.676L10 15.082l5.925 2.844A.75.75 0 0017 17.25V4.517c0-1.103-.806-2.068-1.93-2.207A41.403 41.403 0 0010 2z"
-                    clipRule="evenodd"
-                  />
-                </svg>
+                <BsBookmark className={styles.iconWrap} />
               </button>
             )}
           </div>
@@ -110,50 +81,16 @@ const CardLayout = ({ data, index, totalQ, testMode }) => {
           : testMode && (
               <div className={styles.actionBtnWrap}>
                 <button
-                  className={clsx(
-                    styles.infoSmall,
-                    styles.answerBtnWrap,
-                    styles.iconWrap
-                  )}
+                  className={clsx(styles.infoSmall, styles.answerBtnWrap)}
                 >
                   {/* Inorrect */}
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1}
-                    stroke="currentColor"
-                    className="w-6 h-6 icon"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
+                  <HiX className={styles.iconWrap} />
                 </button>
                 <button
-                  className={clsx(
-                    styles.infoSmall,
-                    styles.answerBtnWrap,
-                    styles.iconWrap
-                  )}
+                  className={clsx(styles.infoSmall, styles.answerBtnWrap)}
                 >
                   {/* correct icon */}
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1}
-                    stroke="currentColor"
-                    className="w-6 h-6 icon"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
+                  <HiCheck className={styles.iconWrap} />
                 </button>
               </div>
             )}
