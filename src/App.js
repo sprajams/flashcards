@@ -1,10 +1,10 @@
-import CardMain from "./pages/CardMain";
+import StudyMode from "./pages/StudyMode";
 import Homepage from "./pages/Homepage";
 import { Routes, Route, useHref } from "react-router-dom";
 import Category from "./pages/Category";
 import Bookmark from "./pages/Bookmark";
 import BackLink from "./components/BackLink";
-import Quiz from "./pages/Quiz";
+import QuizMode from "./pages/QuizMode";
 import "./App.scss";
 
 function App() {
@@ -21,15 +21,15 @@ function App() {
               <Route path=":categoryId" element={<Category />} />
               <Route
                 path=":categoryId/:cardIndex"
-                element={<CardMain key={routeKey} />}
+                element={<StudyMode key={routeKey} />}
               />
             </Route>
-            <Route path="quiz" element={<Quiz />} />
+            <Route path="quiz" element={<QuizMode />} />
 
             <Route path="bookmark" element={<Bookmark />} />
             <Route
               path="bookmark/:cardIndex"
-              element={<CardMain key={routeKey} />}
+              element={<StudyMode key={routeKey} />}
             />
           </Routes>
         </div>

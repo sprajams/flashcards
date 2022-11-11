@@ -5,7 +5,7 @@ import output from "../../assets/output.json";
 import styles from "./styles.module.scss";
 import { HiArrowNarrowLeft, HiArrowNarrowRight } from "react-icons/hi";
 
-const CardMain = () => {
+const StudyMode = () => {
   const { categoryId, cardIndex } = useParams();
   const data =
     categoryId && cardIndex ? groups[categoryId].data : output.questions; //
@@ -59,4 +59,4 @@ const CardMain = () => {
   );
 };
 
-export default CardMain;
+export default StudyMode;

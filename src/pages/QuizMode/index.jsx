@@ -4,7 +4,7 @@ import { start } from "../../store/quizSlice";
 import data from "../../assets/output.json";
 import CardLayout from "../../components/CardLayout";
 
-const PracticeTest = () => {
+const QuizMode = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const dispatch = useDispatch();
   const quiz = useSelector((state) => state.quiz);
@@ -54,4 +54,4 @@ const PracticeTest = () => {
   );
 };
 
-export default PracticeTest;
+export default QuizMode;
