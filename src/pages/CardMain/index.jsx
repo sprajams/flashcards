@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import CardLayout from "../CardLayout";
+import CardLayout from "../../components/CardLayout";
 import groups from "../../assets/grouped";
 import output from "../../assets/output.json";
 import styles from "./styles.module.scss";

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { start } from "../../store/quizSlice";
 import data from "../../assets/output.json";
-import CardLayout from "../CardLayout";
+import CardLayout from "../../components/CardLayout";
 
 const PracticeTest = () => {
   const [activeIndex, setActiveIndex] = useState(0);

@@ -1,10 +1,10 @@
-import CardMain from "./components/CardMain";
-import Homepage from "./components/Homepage";
+import CardMain from "./pages/CardMain";
+import Homepage from "./pages/Homepage";
 import { Routes, Route, useHref } from "react-router-dom";
-import Category from "./components/Category";
-import Bookmark from "./components/Bookmark";
+import Category from "./pages/Category";
+import Bookmark from "./pages/Bookmark";
 import BackLink from "./components/BackLink";
-import Quiz from "./components/Quiz";
+import Quiz from "./pages/Quiz";
 import "./App.scss";
 
 function App() {
