@@ -25,6 +25,7 @@ function App() {
               />
             </Route>
             <Route path="quiz" element={<Quiz />} />
+
             <Route path="bookmark" element={<Bookmark />} />
             <Route
               path="bookmark/:cardIndex"
