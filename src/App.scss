@@ -22,9 +22,9 @@
   }
 }
 .navbar {
-  height: 30px;
   display: flex;
   align-items: center;
+  flex: 0 0 30px;
 }
 .content {
   flex: 1 1 auto;
