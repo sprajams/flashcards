@@ -12,49 +12,51 @@ const StudyMode = () => {
   const activeIndex = parseInt(cardIndex, 10);
   const adjustedIndex = activeIndex - 1;
 
+  const buttons = (
+    <>
+      {/* PREV */}
+      <div className={styles.btnWrap}>
+        <span>Prev</span>
+        <Link
+          className={styles.btn}
+          to={`/category/${categoryId}/${
+            activeIndex === 1 ? data.length : activeIndex - 1
+          }`}
+        >
+          <span className={styles.iconWrap}>
+            <HiArrowNarrowLeft />
+          </span>
+        </Link>
+      </div>
+      {/* next */}
+      <div className={styles.btnWrap}>
+        <span>Next</span>
+        <Link
+          className={styles.btn}
+          to={`/category/${categoryId}/${
+            activeIndex === data.length ? 1 : activeIndex + 1
+          }`}
+        >
+          <span className={styles.iconWrap}>
+            <HiArrowNarrowRight />
+          </span>
+        </Link>
+      </div>
+    </>
+  );
+
   return (
     <div className={styles.cardWrap}>
       <div className={styles.contentContainer}>
         <CardLayout
+          title={`Category: ${groups[categoryId].title}`}
           data={data[adjustedIndex]}
           index={adjustedIndex}
           totalQ={data.length}
           testMode={false}
+          buttons={buttons}
         />
       </div>
-      {categoryId ? (
-        <div className={styles.btnContainer}>
-          {/* PREV */}
-          <div className={styles.btnWrap}>
-            <span>Prev</span>
-            <Link
-              className={styles.btn}
-              to={`/category/${categoryId}/${
-                activeIndex === 1 ? data.length : activeIndex - 1
-              }`}
-            >
-              <span className={styles.iconWrap}>
-                <HiArrowNarrowLeft />
-              </span>
-            </Link>
-          </div>
-
-          {/* next */}
-          <div className={styles.btnWrap}>
-            <span>Next</span>
-            <Link
-              className={styles.btn}
-              to={`/category/${categoryId}/${
-                activeIndex === data.length ? 1 : activeIndex + 1
-              }`}
-            >
-              <span className={styles.iconWrap}>
-                <HiArrowNarrowRight />
-              </span>
-            </Link>
-          </div>
-        </div>
-      ) : null}
     </div>
   );
 };

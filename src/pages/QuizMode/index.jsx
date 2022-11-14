@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { start } from "../../store/quizSlice";
 import data from "../../assets/output.json";
 import CardLayout from "../../components/CardLayout";
+import { HiArrowNarrowLeft, HiArrowNarrowRight } from "react-icons/hi";
 
 const QuizMode = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -20,37 +21,34 @@ const QuizMode = () => {
     result.sort((a, b) => a - b);
     dispatch(start({ indexes: result }));
   };
+  const buttons = (
+    <>
+      <button onClick={() => setActiveIndex((curr) => curr - 1)}>
+        <span>prev</span> <HiArrowNarrowLeft />
+      </button>
+      <button onClick={() => setActiveIndex((curr) => curr + 1)}>
+        <span>next</span> <HiArrowNarrowRight />
+      </button>
+    </>
+  );
 
   return (
-    <div>
-      <h2>Quiz</h2>
-      <div>
-        {quiz.ids.length > 0 ? (
-          <>
-            <CardLayout
-              data={data.questions.find(
-                ({ id }) => quiz.ids[activeIndex] === id
-              )}
-              index={activeIndex}
-              totalQ={quiz.ids.length}
-            />
-            <div>
-              <button onClick={() => setActiveIndex((curr) => curr - 1)}>
-                prev
-              </button>
-              <button onClick={() => setActiveIndex((curr) => curr + 1)}>
-                next
-              </button>
-            </div>
-          </>
-        ) : (
-          <>
-            <p>Answer 6 correctly out of 10 to win!</p>
-            <button onClick={handleQuizIndex}>Start</button>
-          </>
-        )}
-      </div>
-    </div>
+    <>
+      {quiz.ids.length > 0 ? (
+        <CardLayout
+          data={data.questions.find(({ id }) => quiz.ids[activeIndex] === id)}
+          index={activeIndex}
+          totalQ={quiz.ids.length}
+          buttons={buttons}
+          title={"Quiz"}
+        />
+      ) : (
+        <>
+          <p>Answer 6 correctly out of 10 to win!</p>
+          <button onClick={handleQuizIndex}>Start</button>
+        </>
+      )}
+    </>
   );
 };
 
