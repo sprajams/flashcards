@@ -1,13 +1,22 @@
 .outer {
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  color: var(--color-text-primary);
+}
+
+.cardContainer {
+  flex: 1 1 auto;
   border-radius: 8px;
   padding: 12px 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  width: 100%;
-  gap: 12px;
+  gap: 8px;
+  overflow: hidden;
   color: var(--color-text-primary);
   background: rgb(236, 236, 236);
   border-top: 16px solid rgb(75, 81, 133);
@@ -18,7 +27,6 @@
     border-bottom: 16px solid rgb(107, 82, 62);
   }
 }
-
 // TOP
 .topContainer {
   display: flex;
@@ -38,12 +46,9 @@
 .topInfo {
   justify-content: space-between;
 }
-.qInfoWrap {
-  justify-content: center;
-}
+
 .infoSmall {
-  font-size: 1.1rem;
-  color: rgba(34, 34, 34, 0.95);
+  font-size: 1rem;
   color: rgb(93, 93, 93);
   @media (prefers-color-scheme: dark) {
     color: rgba(197, 179, 165, 0.95);
@@ -53,22 +58,23 @@
   margin-top: 4px;
   font-size: 1.25rem;
   line-height: 1.6rem;
+  color: rgb(93, 93, 93);
+  @media (prefers-color-scheme: dark) {
+    color: rgba(197, 179, 165, 0.95);
+  }
 }
 
 // MAIN/MID
 .mainWrap {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
+  overflow-y: auto;
   width: 100%;
-  overflow-y: scroll;
   flex: 1 1 auto;
-  padding: 0;
 }
 .answerWrap {
-  font-size: 1.45rem;
-  padding: 0;
-  padding-left: 28px;
+  font-size: 1.4rem;
+  padding: 0 24px;
   font-weight: 500;
-  overflow-y: scroll;
 }
 
 // BOTTOM
@@ -111,5 +117,12 @@
 .actionBtnWrap {
   display: flex;
   gap: 20px;
+  align-items: center;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
   align-items: center;
 }

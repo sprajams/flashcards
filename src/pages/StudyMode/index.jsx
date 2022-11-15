@@ -53,7 +53,6 @@ const StudyMode = () => {
           data={data[adjustedIndex]}
           index={adjustedIndex}
           totalQ={data.length}
-          testMode={false}
           buttons={buttons}
         />
       </div>

@@ -4,11 +4,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { add, remove } from "../../store/bookmarksSlice";
 import { useState } from "react";
 import { BsBookmark, BsBookmarkFill } from "react-icons/bs";
-import { HiCheck, HiX } from "react-icons/hi";
 
-const CardLayout = ({ data, index, totalQ, testMode, buttons, title }) => {
+const CardLayout = ({
+  data,
+  index,
+  totalQ,
+  buttons,
+  buttonsFlipped,
+  title,
+}) => {
   const { question, options, id } = data;
-  const [activeFront, setActiveFront] = useState(true);
+  const [isFlipped, setIsFlipped] = useState(false);
   // get state of bookmarks
   const bookmarkState = useSelector((state) => state.bookmarks);
   const dispatch = useDispatch();
@@ -22,7 +28,7 @@ const CardLayout = ({ data, index, totalQ, testMode, buttons, title }) => {
   const isBookmarked = bookmarkState.indexOf(id) >= 0;
   return (
     <div className={styles.outer}>
-      <h2 className={styles.titleWrap}>{title}</h2>
+      <h2>{title}</h2>
       <div className={styles.cardContainer}>
         <div className={styles.topContainer}>
           <div className={clsx(styles.topInfo, styles.infoSmall)}>
@@ -51,13 +57,11 @@ const CardLayout = ({ data, index, totalQ, testMode, buttons, title }) => {
               )}
             </div>
           </div>
-          {activeFront ? null : <h3 className={styles.infoBig}>{question}</h3>}
+          {isFlipped ? <h3 className={styles.infoBig}>{question}</h3> : null}
         </div>
 
         <div className={styles.mainWrap}>
-          {activeFront ? (
-            <h2>{question}</h2>
-          ) : (
+          {isFlipped ? (
             <ul className={styles.answerWrap}>
               {options.length > 0
                 ? options.map((elem, i) => {
@@ -65,39 +69,24 @@ const CardLayout = ({ data, index, totalQ, testMode, buttons, title }) => {
                   })
                 : null}
             </ul>
+          ) : (
+            <h2>{question}</h2>
           )}
         </div>
 
         <div className={styles.bottomWrap}>
           <button
             className={clsx(styles.infoSmall, styles.answerBtnWrap)}
-            onClick={() => setActiveFront(!activeFront)}
+            onClick={() => setIsFlipped(!isFlipped)}
           >
-            {activeFront ? "Show Answer" : "Show Question"}
+            {isFlipped ? "Show Question" : "Show Answer"}
           </button>
-
-          {/* TODO: section for test mode */}
-          {activeFront
-            ? ""
-            : testMode && (
-                <div className={styles.actionBtnWrap}>
-                  <button
-                    className={clsx(styles.infoSmall, styles.answerBtnWrap)}
-                  >
-                    {/* Inorrect */}
-                    <HiX className={styles.iconWrap} />
-                  </button>
-                  <button
-                    className={clsx(styles.infoSmall, styles.answerBtnWrap)}
-                  >
-                    {/* correct icon */}
-                    <HiCheck className={styles.iconWrap} />
-                  </button>
-                </div>
-              )}
         </div>
       </div>
-      <div className={styles.btnContainer}>{buttons}</div>
+      <div className={styles.btnContainer}>
+        {/* show correct & incorrect buttons (buttonsFlipped) only if available in quiz mode */}
+        {isFlipped ? buttonsFlipped ?? buttons : buttons}
+      </div>
     </div>
   );
 };

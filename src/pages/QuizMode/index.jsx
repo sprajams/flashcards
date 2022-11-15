@@ -3,7 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { start } from "../../store/quizSlice";
 import data from "../../assets/output.json";
 import CardLayout from "../../components/CardLayout";
-import { HiArrowNarrowLeft, HiArrowNarrowRight } from "react-icons/hi";
+import {
+  HiArrowNarrowLeft,
+  HiArrowNarrowRight,
+  HiCheck,
+  HiX,
+} from "react-icons/hi";
 
 const QuizMode = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -32,6 +37,19 @@ const QuizMode = () => {
     </>
   );
 
+  const buttonsConfirm = (
+    <>
+      <button>
+        {/* Inorrect */}
+        <HiX />
+      </button>
+      <button>
+        {/* correct icon */}
+        <HiCheck />
+      </button>
+    </>
+  );
+
   return (
     <>
       {quiz.ids.length > 0 ? (
@@ -40,6 +58,7 @@ const QuizMode = () => {
           index={activeIndex}
           totalQ={quiz.ids.length}
           buttons={buttons}
+          buttonsFlipped={buttonsConfirm}
           title={"Quiz"}
         />
       ) : (
