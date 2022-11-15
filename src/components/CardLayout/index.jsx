@@ -28,7 +28,7 @@ const CardLayout = ({
   const isBookmarked = bookmarkState.indexOf(id) >= 0;
   return (
     <div className={styles.outer}>
-      <h2>{title}</h2>
+      <h2 className={styles.title}>{title}</h2>
       <div className={styles.cardContainer}>
         <div className={styles.topContainer}>
           <div className={clsx(styles.topInfo, styles.infoSmall)}>
