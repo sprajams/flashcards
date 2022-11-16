@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import styles from "./styles.module.scss";
 import { useDispatch, useSelector } from "react-redux";
+import { StudyButtons, QuizButtons } from "./Buttons";
 import { add, remove } from "../../store/bookmarksSlice";
 import { useState } from "react";
 import { BsBookmark, BsBookmarkFill } from "react-icons/bs";
@@ -9,9 +10,11 @@ const CardLayout = ({
   data,
   index,
   totalQ,
-  buttons,
-  buttonsFlipped,
+  activeIndex,
   title,
+  isQuiz,
+  categoryId,
+  handleSkip,
 }) => {
   const { question, options, id } = data;
   const [isFlipped, setIsFlipped] = useState(false);
@@ -26,6 +29,11 @@ const CardLayout = ({
   };
   // return boolean on if individual card is bookmarked
   const isBookmarked = bookmarkState.indexOf(id) >= 0;
+
+  const handleFlip = () => {
+    setIsFlipped(!isFlipped);
+  };
+
   return (
     <div className={styles.outer}>
       <h2 className={styles.title}>{title}</h2>
@@ -44,7 +52,7 @@ const CardLayout = ({
                   onClick={handleUnbookmark}
                 >
                   {/* bookmarked, filled icon */}
-                  <BsBookmarkFill className={styles.iconWrap} />
+                  <BsBookmarkFill className={styles.icon} />
                 </button>
               ) : (
                 <button
@@ -52,7 +60,7 @@ const CardLayout = ({
                   onClick={handleBookmark}
                 >
                   {/* bookmark-able, outlined icon */}
-                  <BsBookmark className={styles.iconWrap} />
+                  <BsBookmark className={styles.icon} />
                 </button>
               )}
             </div>
@@ -77,7 +85,7 @@ const CardLayout = ({
         <div className={styles.bottomWrap}>
           <button
             className={clsx(styles.infoSmall, styles.answerBtnWrap)}
-            onClick={() => setIsFlipped(!isFlipped)}
+            onClick={handleFlip}
           >
             {isFlipped ? "Show Question" : "Show Answer"}
           </button>
@@ -85,7 +93,20 @@ const CardLayout = ({
       </div>
       <div className={styles.btnContainer}>
         {/* show correct & incorrect buttons (buttonsFlipped) only if available in quiz mode */}
-        {isFlipped ? buttonsFlipped ?? buttons : buttons}
+        {/* {isFlipped ? buttonsFlipped ?? buttons : "buttons"} */}
+        {isQuiz ? (
+          <QuizButtons
+            handleSkip={handleSkip}
+            isFlipped={isFlipped}
+            handleFlip={handleFlip}
+          />
+        ) : (
+          <StudyButtons
+            data={data}
+            activeIndex={activeIndex}
+            categoryId={categoryId}
+          />
+        )}
       </div>
     </div>
   );

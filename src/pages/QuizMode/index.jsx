@@ -3,12 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { start } from "../../store/quizSlice";
 import data from "../../assets/output.json";
 import CardLayout from "../../components/CardLayout";
-import {
-  HiArrowNarrowLeft,
-  HiArrowNarrowRight,
-  HiCheck,
-  HiX,
-} from "react-icons/hi";
 
 const QuizMode = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -26,41 +20,28 @@ const QuizMode = () => {
     result.sort((a, b) => a - b);
     dispatch(start({ indexes: result }));
   };
-  const buttons = (
-    <>
-      <button onClick={() => setActiveIndex((curr) => curr - 1)}>
-        <span>prev</span> <HiArrowNarrowLeft />
-      </button>
-      <button onClick={() => setActiveIndex((curr) => curr + 1)}>
-        <span>next</span> <HiArrowNarrowRight />
-      </button>
-    </>
-  );
 
-  const buttonsConfirm = (
-    <>
-      <button>
-        {/* Inorrect */}
-        <HiX />
-      </button>
-      <button>
-        {/* correct icon */}
-        <HiCheck />
-      </button>
-    </>
-  );
+  const handleSkip = () => {
+    if (activeIndex < 10) {
+      setActiveIndex(() => {
+        return activeIndex + 1;
+      });
+    }
+  };
 
   return (
     <>
-      {quiz.ids.length > 0 ? (
+      {quiz.ids.length > 0 && activeIndex !== 10 ? (
         <CardLayout
           data={data.questions.find(({ id }) => quiz.ids[activeIndex] === id)}
           index={activeIndex}
           totalQ={quiz.ids.length}
-          buttons={buttons}
-          buttonsFlipped={buttonsConfirm}
           title={"Quiz"}
+          handleSkip={handleSkip}
+          isQuiz={true}
         />
+      ) : activeIndex === 10 ? (
+        <h2>show score</h2>
       ) : (
         <>
           <p>Answer 6 correctly out of 10 to win!</p>
