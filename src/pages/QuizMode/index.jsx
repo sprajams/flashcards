@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { start } from "../../store/quizSlice";
 import data from "../../assets/output.json";
 import CardLayout from "../../components/CardLayout";
+import Results from "../Results";
 
 const QuizMode = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -39,9 +40,10 @@ const QuizMode = () => {
           title={"Quiz"}
           handleSkip={handleSkip}
           isQuiz={true}
+          quizId={quiz.ids[activeIndex]}
         />
       ) : activeIndex === 10 ? (
-        <h2>show score</h2>
+        <Results />
       ) : (
         <>
           <p>Answer 6 correctly out of 10 to win!</p>
