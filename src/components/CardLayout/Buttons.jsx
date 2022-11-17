@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { correct, incorrect } from "../../store/quizSlice";
 import clsx from "clsx";
 import {
   HiArrowNarrowLeft,
@@ -40,12 +42,33 @@ export const StudyButtons = ({ data, activeIndex, categoryId }) => {
   );
 };
 
-export const QuizButtons = ({ handleSkip, isFlipped, handleFlip }) => {
+export const QuizButtons = ({
+  handleSkip,
+  isFlipped,
+  handleFlip,
+  setIsFlipped,
+  quizId,
+}) => {
+  const dispatch = useDispatch();
+
+  const handleCorrect = () => {
+    dispatch(correct({ id: quizId, answer: true }));
+    setIsFlipped(!isFlipped);
+    handleSkip();
+  };
+  const handleIncorrect = () => {
+    dispatch(incorrect({ id: quizId, answer: false }));
+    setIsFlipped(!isFlipped);
+    handleSkip();
+  };
   return (
     <>
       {isFlipped ? (
         <>
-          <button className={clsx(styles.btn, styles.btnSmall)}>
+          <button
+            className={clsx(styles.btn, styles.btnSmall)}
+            onClick={handleIncorrect}
+          >
             {/* Inorrect */}
             <span className={clsx(styles.iconWrap, styles.iconWrapNoOutline)}>
               <HiOutlineEmojiSad
@@ -57,7 +80,7 @@ export const QuizButtons = ({ handleSkip, isFlipped, handleFlip }) => {
               />
             </span>
           </button>
-          <button className={styles.btn}>
+          <button className={styles.btn} onClick={handleCorrect}>
             {/* correct icon */}
             <span className={clsx(styles.iconWrap, styles.iconWrapNoOutline)}>
               <HiOutlineEmojiHappy
