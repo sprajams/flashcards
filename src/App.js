@@ -23,6 +23,10 @@ function App() {
                 path=":categoryId/:cardIndex"
                 element={<StudyMode key={routeKey} />}
               />
+              <Route
+                path=":categoryId/quiz"
+                element={<QuizMode key={routeKey} />}
+              />
             </Route>
             <Route path="quiz" element={<QuizMode />} />
 
