@@ -65,10 +65,7 @@ export const QuizButtons = ({
     <>
       {isFlipped ? (
         <>
-          <button
-            className={clsx(styles.btn, styles.btnSmall)}
-            onClick={handleIncorrect}
-          >
+          <button className={styles.btn} onClick={handleIncorrect}>
             {/* Inorrect */}
             <span className={clsx(styles.iconWrap, styles.iconWrapNoOutline)}>
               <HiOutlineEmojiSad
@@ -95,10 +92,7 @@ export const QuizButtons = ({
         </>
       ) : (
         <>
-          <button
-            className={clsx(styles.btn, styles.btnSmall)}
-            onClick={handleSkip}
-          >
+          <button className={styles.btn} onClick={handleSkip}>
             <span>Skip</span>
             <span className={styles.iconWrap}>
               <HiArrowNarrowRight className={styles.icon} />
