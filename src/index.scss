@@ -1,7 +1,7 @@
 :root {
   --color-text-primary: rgb(71, 40, 40);
   --color-text-secondary: rgb(111, 75, 46);
-  --color-bg-primary: rgb(245, 245, 245);
+  --color-bg-primary: rgb(242, 237, 234);
   @media (prefers-color-scheme: dark) {
     --color-text-primary: rgb(243, 235, 214);
     --color-text-secondary: rgb(189, 180, 170);
@@ -109,14 +109,16 @@ a {
   width: 8px;
 }
 // /* Handle */
-::-webkit-scrollbar-thumb {
-  background: rgb(110, 110, 110);
-  border-radius: 8px;
-}
-::-webkit-scrollbar-thumb:horizontal {
-  background: rgb(110, 110, 110);
-  border-radius: 8px;
-}
 ::-webkit-scrollbar-track {
   display: none;
+}
+::-webkit-scrollbar {
+  width: 15px;
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  border: 5px solid transparent;
+  background-clip: padding-box;
+  border-radius: 8px;
+  background-color: var(--color-text-secondary);
 }
