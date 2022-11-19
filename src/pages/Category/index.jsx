@@ -1,20 +1,26 @@
 import { Link, useParams } from "react-router-dom";
 import groups from "../../assets/grouped";
 import styles from "./styles.module.scss";
+import clsx from "clsx";
 
 const Category = () => {
   const { categoryId } = useParams();
   const data = groups[categoryId].data ?? []; // if data is undefined, set as empty array to not break
   return (
     <div>
-      <h2 className={styles.title}>Category: {groups[categoryId].title}</h2>
+      <h3 className={styles.title}>Category: {groups[categoryId].title}</h3>
       {/* to just begin studying all cards */}
-      <div>
-        <h3 className={styles.startBtn}>
+      <div className={styles.btnContainer}>
+        <h2 className={styles.studyBtn}>
           <Link to="1" className={styles.btnLink}>
-            Start
+            Study
           </Link>
-        </h3>
+        </h2>
+        <h2 className={clsx(styles.studyBtn, styles.quizBtn)}>
+          <Link to="quiz" className={styles.btnLink}>
+            Quiz
+          </Link>
+        </h2>
       </div>
       {data.length > 0 ? (
         <ul className={styles.listWrap}>
