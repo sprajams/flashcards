@@ -26,16 +26,14 @@
   text-transform: uppercase;
   margin: 0 auto;
   flex-basis: 36%;
-  @media (prefers-color-scheme: dark) {
-    border: 2px solid var(--color-text-secondary);
-  }
+  border: 2px solid var(--color-text-secondary);
 }
 .quizBtn {
   width: 200px;
-  background: rgb(57, 155, 57);
+  background: rgb(16 190 16);
   border: none;
   flex-basis: 52%;
-
+  color: var(--color-text-primary);
   @media (prefers-color-scheme: dark) {
     background: rgb(21, 61, 21);
   }
