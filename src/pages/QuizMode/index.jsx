@@ -10,6 +10,8 @@ import Results from "../Results";
 const QuizMode = () => {
   const { categoryId } = useParams();
   const [activeIndex, setActiveIndex] = useState(0);
+  const [quizArray, setQuizArray] = useState([]);
+
   const dispatch = useDispatch();
   const quiz = useSelector((state) => state.quiz);
 
@@ -39,24 +41,31 @@ const QuizMode = () => {
       }
     }
     dispatch(start({ indexes: result }));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dispatch, categoryId]);
 
   const quizTitle = groups[categoryId]
     ? "Quiz: " + groups[categoryId].title
     : "Quiz";
 
+  useEffect(() => {
+    if (quiz.ids.length === 10) {
+      let resultA = quiz.ids.map((idx) => {
+        return data.questions.find(({ id }) => idx === id);
+      });
+      setQuizArray(resultA);
+    }
+  }, [quiz.ids]);
+
   return (
     <>
-      {quiz.ids.length > 0 && activeIndex !== 10 ? (
+      {quizArray.length > 0 && activeIndex !== 10 ? (
         <CardLayout
-          data={data.questions.find(({ id }) => quiz.ids[activeIndex] === id)}
-          index={activeIndex}
+          data={quizArray[activeIndex]}
+          activeIndex={activeIndex + 1}
           totalQ={quiz.ids.length}
           title={quizTitle}
           handleSkip={handleSkip}
           isQuiz={true}
-          quizId={quiz.ids[activeIndex]}
         />
       ) : activeIndex === 10 ? (
         <Results title={quizTitle} />
