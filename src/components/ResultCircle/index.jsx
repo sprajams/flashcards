@@ -43,7 +43,7 @@ const ResultCircle = ({
         fill={textColor}
         dominantBaseline="central"
         textAnchor="middle"
-        fontSize={"1.6em"}
+        fontSize={"1.8em"}
       >
         {pct.toFixed(0)}%
       </text>
