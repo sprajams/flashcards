@@ -6,10 +6,6 @@
   background: var(--color-bg-primary);
   color: var(--color-text-primary);
 }
-.listWrap {
-  padding: 8px 0;
-  list-style: none;
-}
 
 .btnContainer {
   margin: 16px 0;
@@ -17,7 +13,7 @@
 }
 .studyBtn {
   border-radius: 16px;
-  border: 2px solid rgb(36, 30, 25);
+  border: 2px solid rgb(19, 19, 18);
   width: 100px;
   display: flex;
   justify-content: center;
@@ -47,23 +43,4 @@
   @media (prefers-color-scheme: dark) {
     color: var(--color-text-primary);
   }
-}
-
-.questionWrap {
-  border-bottom: 2px dashed rgba(97, 64, 53, 0.2);
-  padding: 1em 1.4em;
-  font-size: 1.1rem;
-  overflow-y: scroll;
-  @media (prefers-color-scheme: dark) {
-    border-bottom: 2px dashed rgb(50, 50, 50);
-  }
-}
-.questionWrap:first-child {
-  border-top: 2px dashed rgba(97, 64, 53, 0.2);
-  @media (prefers-color-scheme: dark) {
-    border-top: 2px dashed rgb(50, 50, 50);
-  }
-}
-.questionLink {
-  color: var(--color-text-secondary);
 }

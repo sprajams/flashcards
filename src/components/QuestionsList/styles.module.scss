@@ -1,0 +1,23 @@
+.listWrap {
+  padding: 8px 0;
+  list-style: none;
+}
+
+.questionWrap {
+  border-bottom: 2px dashed rgba(97, 64, 53, 0.2);
+  padding: 1em 1.4em;
+  font-size: 1.1rem;
+  overflow-y: scroll;
+  @media (prefers-color-scheme: dark) {
+    border-bottom: 2px dashed rgb(50, 50, 50);
+  }
+}
+.questionWrap:first-child {
+  border-top: 2px dashed rgba(97, 64, 53, 0.2);
+  @media (prefers-color-scheme: dark) {
+    border-top: 2px dashed rgb(50, 50, 50);
+  }
+}
+.questionLink {
+  color: var(--color-text-secondary);
+}
