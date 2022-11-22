@@ -1,0 +1,61 @@
+.resultContainer {
+  height: 100%;
+  position: relative;
+}
+
+.scoreWrap {
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 200px;
+  border: 10px solid;
+  border-image-slice: 1;
+  border-width: 5px;
+}
+
+.resultsWrap {
+  border: 2px solid var(--color-text-primary);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: floor($number: 0) 8px;
+}
+.resultText {
+  font-size: 2rem;
+  color: #b7b7b7;
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
+  stroke-width: 100;
+  color: var(--color-text-primary);
+}
+.icon path {
+  stroke-width: 1;
+}
+.iconWrap {
+  width: 75px;
+}
+.resultsInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.retryBtn {
+  width: 200px;
+  padding: 8px;
+  font-size: 1.2rem;
+  margin: 20px auto 0;
+  display: flex;
+  border: none;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
