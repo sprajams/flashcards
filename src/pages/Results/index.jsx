@@ -24,8 +24,8 @@ const Results = ({ title }) => {
   );
 
   const numCorrect = results.correct.length;
-  const resultStatus = numCorrect >= 6;
-  const percentCorrect = (6 / 10).toFixed(2) * 100;
+  const isPassing = numCorrect >= 6;
+  const percentCorrect = (numCorrect / 10).toFixed(2) * 100;
 
   const navigate = useNavigate();
   const handleRetry = () => {
@@ -37,15 +37,15 @@ const Results = ({ title }) => {
 
   return (
     <div className={styles.resultContainer}>
-      <h3>{title}</h3>
+      <h3 className={styles.title}>{title}</h3>
       <h2>Final Score:</h2>
       <div className={styles.resultsWrap}>
         <div className={styles.resultsInfo}>
           <h3 className={styles.resultText}>
-            {resultStatus ? "PASS" : "No Pass"}
+            {isPassing ? "PASS" : "No Pass"}
           </h3>
           <div className={styles.iconWrap}>
-            {resultStatus ? (
+            {isPassing ? (
               <HiOutlineEmojiHappy className={styles.icon} />
             ) : (
               <HiOutlineEmojiSad className={styles.icon} />
@@ -54,7 +54,7 @@ const Results = ({ title }) => {
         </div>
         <ResultCircle
           percentage={percentCorrect}
-          colorPrimary={darkThemeMq ? "#309a5c" : "#1e5234"}
+          colorPrimary={isPassing ? "#29824e" : "#be5050"}
           colorSecondary={"#cdd2cf"}
           textColor={darkThemeMq ? "white" : "black"}
         />
