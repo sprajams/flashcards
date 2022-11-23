@@ -5,9 +5,9 @@
 
 .questionWrap {
   border-bottom: 2px dashed rgba(97, 64, 53, 0.2);
-  padding: 1em 1.4em;
+  padding: 12px 8px;
   font-size: 1.1rem;
-  overflow-y: scroll;
+  overflow-y: auto;
   @media (prefers-color-scheme: dark) {
     border-bottom: 2px dashed rgb(50, 50, 50);
   }
@@ -20,4 +20,22 @@
 }
 .questionLink {
   color: var(--color-text-secondary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.iconWrap {
+  flex: 0 0 20px;
+}
+.icon {
+  width: 100%;
+  height: 100%;
+}
+.correctIcon {
+  color: green;
+}
+.incorrectIcon {
+  color: red;
 }
