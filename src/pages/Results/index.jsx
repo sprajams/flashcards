@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import ResultCircle from "../../components/ResultCircle";
 import styles from "./styles.module.scss";
 import { HiOutlineEmojiHappy, HiOutlineEmojiSad } from "react-icons/hi";
+import { useEffect, useCallback } from "react";
 // import QuestionsList from "../../components/QuestionsList";
 
 const Results = () => {
@@ -29,12 +30,19 @@ const Results = () => {
   const percentCorrect = (numCorrect / 10).toFixed(2) * 100;
 
   const navigate = useNavigate();
-  const handleRetry = () => {
+  const handleRetry = useCallback(() => {
     navigate("/quiz"); // refresh page to start new quiz
-  };
+  }, [navigate]);
 
   // use to detech if dark mode is system preference
   const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  //
+  useEffect(() => {
+    if (quiz.ids.length !== 10) {
+      navigate("/quiz", { replace: true });
+    }
+  }, [quiz.ids, navigate]);
 
   return (
     <div className={styles.resultContainer}>
