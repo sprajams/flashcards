@@ -8,9 +8,11 @@ const BackLink = () => {
   let tempArr = "";
   const handleBack = () => {
     tempArr = href.split("/");
-    tempArr.pop();
+    let prev = tempArr.pop();
     if (tempArr[tempArr.length - 1] === "category") {
       tempArr = "/";
+    } else if (prev === "result") {
+      tempArr = "/quiz";
     } else {
       tempArr = tempArr.join("/");
     }

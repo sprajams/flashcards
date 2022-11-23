@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import ResultCircle from "../../components/ResultCircle";
 import styles from "./styles.module.scss";
 import { HiOutlineEmojiHappy, HiOutlineEmojiSad } from "react-icons/hi";
-import QuestionsList from "../../components/QuestionsList";
+// import QuestionsList from "../../components/QuestionsList";
 
-const Results = ({ title, quizData }) => {
+const Results = () => {
   const quiz = useSelector((state) => state.quiz);
   // turn stats object into [[key,value], [id, true]]
   const statsEntries = Object.entries(quiz.stats);
@@ -30,7 +30,7 @@ const Results = ({ title, quizData }) => {
 
   const navigate = useNavigate();
   const handleRetry = () => {
-    navigate(0); // refresh page to start new quiz
+    navigate("/quiz"); // refresh page to start new quiz
   };
 
   // use to detech if dark mode is system preference
@@ -38,7 +38,7 @@ const Results = ({ title, quizData }) => {
 
   return (
     <div className={styles.resultContainer}>
-      <h3 className={styles.title}>{title}</h3>
+      {/* <h3 className={styles.title}>{title}</h3> */}
       <h2>Final Score:</h2>
       <div className={styles.resultsWrap}>
         <div className={styles.resultsInfo}>
@@ -63,10 +63,10 @@ const Results = ({ title, quizData }) => {
       <button onClick={handleRetry} className={styles.retryBtn}>
         retry
       </button>
-      <div className={styles.questionsWrap}>
+      {/* <div className={styles.questionsWrap}>
         <h4>Questions:</h4>
         <QuestionsList data={quizData} results={results} />
-      </div>
+      </div> */}
     </div>
   );
 };

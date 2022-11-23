@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { start } from "../../store/quizSlice";
 import data from "../../assets/output.json";
 import groups from "../../assets/grouped";
 import CardLayout from "../../components/CardLayout";
-import Results from "../Results";
 
 const QuizMode = () => {
   const { categoryId } = useParams();
+  const navigate = useNavigate();
+
   const [activeIndex, setActiveIndex] = useState(0);
   const [quizArray, setQuizArray] = useState([]);
 
@@ -56,6 +57,12 @@ const QuizMode = () => {
     }
   }, [quiz.ids]);
 
+  useEffect(() => {
+    if (activeIndex === 10) {
+      navigate("/result");
+    }
+  }, [activeIndex, navigate]);
+
   return (
     <>
       {quizArray.length > 0 && activeIndex !== 10 ? (
@@ -67,8 +74,6 @@ const QuizMode = () => {
           handleSkip={handleSkip}
           isQuiz={true}
         />
-      ) : activeIndex === 10 ? (
-        <Results title={quizTitle} quizData={quizArray} />
       ) : null}
     </>
   );

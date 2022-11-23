@@ -5,6 +5,7 @@ import Category from "./pages/Category";
 import Bookmark from "./pages/Bookmark";
 import BackLink from "./components/BackLink";
 import QuizMode from "./pages/QuizMode";
+import Results from "./pages/Results";
 import "./App.scss";
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
               />
             </Route>
             <Route path="quiz" element={<QuizMode />} />
+            <Route path="result" element={<Results />} />
 
             <Route path="bookmark" element={<Bookmark />} />
             <Route
