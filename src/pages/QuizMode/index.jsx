@@ -68,7 +68,7 @@ const QuizMode = () => {
           isQuiz={true}
         />
       ) : activeIndex === 10 ? (
-        <Results title={quizTitle} />
+        <Results title={quizTitle} quizData={quizArray} />
       ) : null}
     </>
   );

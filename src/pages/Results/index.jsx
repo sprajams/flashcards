@@ -3,8 +3,9 @@ import { useNavigate } from "react-router-dom";
 import ResultCircle from "../../components/ResultCircle";
 import styles from "./styles.module.scss";
 import { HiOutlineEmojiHappy, HiOutlineEmojiSad } from "react-icons/hi";
+import QuestionsList from "../../components/QuestionsList";
 
-const Results = ({ title }) => {
+const Results = ({ title, quizData }) => {
   const quiz = useSelector((state) => state.quiz);
   // turn stats object into [[key,value], [id, true]]
   const statsEntries = Object.entries(quiz.stats);
@@ -62,6 +63,10 @@ const Results = ({ title }) => {
       <button onClick={handleRetry} className={styles.retryBtn}>
         retry
       </button>
+      <div className={styles.questionsWrap}>
+        <h4>Questions:</h4>
+        <QuestionsList data={quizData} results={results} />
+      </div>
     </div>
   );
 };
