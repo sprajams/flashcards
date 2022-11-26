@@ -29,7 +29,7 @@ function App() {
                 element={<QuizMode key={routeKey} />}
               />
             </Route>
-            <Route path="quiz" element={<QuizMode />} />
+            <Route path="quiz" element={<QuizMode key={routeKey} />} />
             <Route path="result" element={<Results />} />
 
             <Route path="bookmark" element={<Bookmark />} />
