@@ -11,14 +11,14 @@ import {
 } from "react-icons/hi";
 import styles from "./styles.module.scss";
 
-export const StudyButtons = ({ data, activeIndex, categoryId }) => {
+export const StudyButtons = ({ activeIndex, categoryId, totalQ }) => {
   return (
     <>
       {/* PREV */}
       <Link
         className={styles.btn}
         to={`/category/${categoryId}/${
-          activeIndex === 1 ? data.length : activeIndex - 1
+          activeIndex === 1 ? totalQ : activeIndex - 1
         }`}
       >
         <span>Prev</span>
@@ -30,7 +30,7 @@ export const StudyButtons = ({ data, activeIndex, categoryId }) => {
       <Link
         className={styles.btn}
         to={`/category/${categoryId}/${
-          activeIndex === data.length ? 1 : activeIndex + 1
+          activeIndex === totalQ ? 1 : activeIndex + 1
         }`}
       >
         <span>Next</span>

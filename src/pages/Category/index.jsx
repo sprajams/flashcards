@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import groups from "../../assets/grouped";
+import QuestionsList from "../../components/QuestionsList";
 import styles from "./styles.module.scss";
 import clsx from "clsx";
 
@@ -22,19 +23,7 @@ const Category = () => {
           </Link>
         </h2>
       </div>
-      {data.length > 0 ? (
-        <ul className={styles.listWrap}>
-          {data.map((x, i) => {
-            return (
-              <li key={i} className={styles.questionWrap}>
-                <Link to={`${i + 1}`} className={styles.questionLink}>
-                  {x.question}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      ) : null}
+      {data.length > 0 ? <QuestionsList data={data} /> : null}
     </div>
   );
 };

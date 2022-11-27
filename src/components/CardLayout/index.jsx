@@ -8,14 +8,12 @@ import { BsBookmark, BsBookmarkFill } from "react-icons/bs";
 
 const CardLayout = ({
   data,
-  index,
   totalQ,
   activeIndex,
   title,
   isQuiz,
   categoryId,
   handleSkip,
-  quizId,
 }) => {
   const { question, options, id } = data;
   const [isFlipped, setIsFlipped] = useState(false);
@@ -44,7 +42,7 @@ const CardLayout = ({
             <h4>Question: </h4>
             <div className={styles.qInfoWrap}>
               <span>
-                {index + 1} / {totalQ}
+                {activeIndex} / {totalQ}
               </span>
               {/* bookmark icon/button */}
               {isBookmarked ? (
@@ -101,11 +99,12 @@ const CardLayout = ({
             isFlipped={isFlipped}
             handleFlip={handleFlip}
             setIsFlipped={setIsFlipped}
-            quizId={quizId}
+            quizId={id}
           />
         ) : (
           <StudyButtons
             data={data}
+            totalQ={totalQ}
             activeIndex={activeIndex}
             categoryId={categoryId}
           />

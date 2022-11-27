@@ -1,7 +1,12 @@
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import ResultCircle from "../../components/ResultCircle";
+import styles from "./styles.module.scss";
+import { HiOutlineEmojiHappy, HiOutlineEmojiSad } from "react-icons/hi";
+import { useEffect, useCallback } from "react";
+// import QuestionsList from "../../components/QuestionsList";
 
-const Results = ({ title }) => {
+const Results = () => {
   const quiz = useSelector((state) => state.quiz);
   // turn stats object into [[key,value], [id, true]]
   const statsEntries = Object.entries(quiz.stats);
@@ -21,23 +26,57 @@ const Results = ({ title }) => {
   );
 
   const numCorrect = results.correct.length;
-  const resultStatus = numCorrect >= 6;
+  const isPassing = numCorrect >= 6;
+  const percentCorrect = (numCorrect / 10).toFixed(2) * 100;
+
+  console.log(results, "final");
 
   const navigate = useNavigate();
+  const handleRetry = useCallback(() => {
+    navigate("/quiz"); // refresh page to start new quiz
+  }, [navigate]);
 
-  const handleRetry = () => {
-    navigate(0); // refresh page to start new quiz
-  };
+  // use to detech if dark mode is system preference
+  const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  //
+  useEffect(() => {
+    if (quiz.ids.length !== 10) {
+      navigate("/quiz", { replace: true });
+    }
+  }, [quiz.ids, navigate]);
 
   return (
-    <div>
-      <h3>{title}</h3>
-      <h2>Final Score</h2>
-      <div>
-        {resultStatus ? <h3>YAY</h3> : <h3>oh no</h3>}
-        <h4>{numCorrect} / 10</h4>
-        <button onClick={handleRetry}>retry</button>
+    <div className={styles.resultContainer}>
+      {/* <h3 className={styles.title}>{title}</h3> */}
+      <h2>Final Score:</h2>
+      <div className={styles.resultsWrap}>
+        <div className={styles.resultsInfo}>
+          <h3 className={styles.resultText}>
+            {isPassing ? "PASS" : "No Pass"}
+          </h3>
+          <div className={styles.iconWrap}>
+            {isPassing ? (
+              <HiOutlineEmojiHappy className={styles.icon} />
+            ) : (
+              <HiOutlineEmojiSad className={styles.icon} />
+            )}
+          </div>
+        </div>
+        <ResultCircle
+          percentage={percentCorrect}
+          colorPrimary={isPassing ? "#29824e" : "#be5050"}
+          colorSecondary={"#cdd2cf"}
+          textColor={darkThemeMq ? "white" : "black"}
+        />
       </div>
+      <button onClick={handleRetry} className={styles.retryBtn}>
+        retry
+      </button>
+      {/* <div className={styles.questionsWrap}>
+        <h4>Questions:</h4>
+        <QuestionsList data={quizData} results={results} />
+      </div> */}
     </div>
   );
 };

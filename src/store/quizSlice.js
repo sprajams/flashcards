@@ -8,12 +8,13 @@ export const quizSlice = createSlice({
   },
   reducers: {
     start: (state, action) => {
-      return { ...state, ids: action.payload.indexes };
+      state.ids = [...action.payload.indexes]; // saves the new quiz ids
+      state.stats = {}; // refresh stats
     },
     correct: (state, action) => {
       state.stats = {
-        ...state.stats,
         [action.payload.id]: action.payload.answer,
+        ...state.stats,
       };
     },
     incorrect: (state, action) => {
