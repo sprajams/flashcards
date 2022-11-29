@@ -44,6 +44,7 @@ export const StudyButtons = ({ activeIndex, categoryId, totalQ }) => {
 
 export const QuizButtons = ({
   handleSkip,
+  handleNext,
   isFlipped,
   handleFlip,
   setIsFlipped,
@@ -54,12 +55,12 @@ export const QuizButtons = ({
   const handleCorrect = () => {
     dispatch(correct({ id: quizId, answer: true }));
     setIsFlipped(!isFlipped);
-    handleSkip();
+    handleNext();
   };
   const handleIncorrect = () => {
     dispatch(incorrect({ id: quizId, answer: false }));
     setIsFlipped(!isFlipped);
-    handleSkip();
+    handleNext();
   };
   return (
     <>

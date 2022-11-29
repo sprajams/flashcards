@@ -29,8 +29,6 @@ const Results = () => {
   const isPassing = numCorrect >= 6;
   const percentCorrect = (numCorrect / 10).toFixed(2) * 100;
 
-  console.log(results, "final");
-
   const navigate = useNavigate();
   const handleRetry = useCallback(() => {
     navigate("/quiz"); // refresh page to start new quiz

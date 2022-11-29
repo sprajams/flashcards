@@ -14,6 +14,7 @@ const CardLayout = ({
   isQuiz,
   categoryId,
   handleSkip,
+  handleNext,
 }) => {
   const { question, options, id } = data;
   const [isFlipped, setIsFlipped] = useState(false);
@@ -95,6 +96,7 @@ const CardLayout = ({
         {/* {isFlipped ? buttonsFlipped ?? buttons : "buttons"} */}
         {isQuiz ? (
           <QuizButtons
+            handleNext={handleNext}
             handleSkip={handleSkip}
             isFlipped={isFlipped}
             handleFlip={handleFlip}

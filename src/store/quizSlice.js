@@ -23,7 +23,13 @@ export const quizSlice = createSlice({
         [action.payload.id]: action.payload.answer,
       };
     },
+    skip: (state, action) => {
+      // remove skipped question id
+      const temp = state.ids.splice(action.payload.activeIndex, 1);
+      // add skipped question back at the end of the array
+      state.ids = state.ids.concat(temp);
+    },
   },
 });
-export const { start, correct, incorrect } = quizSlice.actions;
+export const { start, correct, incorrect, skip } = quizSlice.actions;
 export default quizSlice.reducer;
