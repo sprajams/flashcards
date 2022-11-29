@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { start } from "../../store/quizSlice";
+import { start, skip } from "../../store/quizSlice";
 import data from "../../assets/output.json";
 import groups from "../../assets/grouped";
 import CardLayout from "../../components/CardLayout";
@@ -18,10 +18,13 @@ const QuizMode = () => {
 
   const handleSkip = () => {
     if (activeIndex < 10) {
-      setActiveIndex(() => {
-        return activeIndex + 1;
-      });
+      dispatch(skip({ activeIndex: activeIndex }));
     }
+  };
+
+  // moving onto the next questions
+  const handleNext = () => {
+    setActiveIndex(activeIndex + 1);
   };
 
   // create array of 10 random non-repeating indexes to use for quiz ?s
@@ -44,10 +47,12 @@ const QuizMode = () => {
     dispatch(start({ indexes: result }));
   }, [dispatch, categoryId]);
 
+  // title of category quiz vs practice quiz
   const quizTitle = groups[categoryId]
     ? "Quiz: " + groups[categoryId].title
     : "Quiz";
 
+  // go through ids and create an array of q details objects
   useEffect(() => {
     if (quiz.ids.length === 10) {
       let resultA = quiz.ids.map((idx) => {
@@ -57,17 +62,18 @@ const QuizMode = () => {
     }
   }, [quiz.ids]);
 
+  // navigate to Results page once all 10 questions have been answered
   useEffect(() => {
     if (activeIndex === 10) {
       navigate("/result");
     }
   }, [activeIndex, navigate]);
-
   return (
     <>
       {quizArray.length > 0 && activeIndex !== 10 ? (
         <CardLayout
           data={quizArray[activeIndex]}
+          handleNext={handleNext}
           activeIndex={activeIndex + 1}
           totalQ={quiz.ids.length}
           title={quizTitle}
