@@ -3,12 +3,12 @@ import { createSlice } from "@reduxjs/toolkit";
 export const quizSlice = createSlice({
   name: "quiz",
   initialState: {
-    ids: [],
+    data: [],
     stats: {},
   },
   reducers: {
-    start: (state, action) => {
-      state.ids = [...action.payload.indexes]; // saves the new quiz ids
+    fetchQuiz: (state, action) => {
+      state.data = [...action.payload.quizArr]; // saves the new quiz data
       state.stats = {}; // refresh stats
     },
     correct: (state, action) => {
@@ -25,11 +25,11 @@ export const quizSlice = createSlice({
     },
     skip: (state, action) => {
       // remove skipped question id
-      const temp = state.ids.splice(action.payload.activeIndex, 1);
+      const temp = state.data.splice(action.payload.activeIndex, 1);
       // add skipped question back at the end of the array
-      state.ids = state.ids.concat(temp);
+      state.data = state.data.concat(temp);
     },
   },
 });
-export const { start, correct, incorrect, skip } = quizSlice.actions;
+export const { fetchQuiz, correct, incorrect, skip } = quizSlice.actions;
 export default quizSlice.reducer;
