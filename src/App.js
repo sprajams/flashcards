@@ -6,6 +6,8 @@ import Bookmark from "./pages/Bookmark";
 import BackLink from "./components/BackLink";
 import QuizMode from "./pages/QuizMode";
 import Results from "./pages/Results";
+import ReviewMode from "./pages/ReviewMode";
+
 import "./App.scss";
 
 function App() {
@@ -18,6 +20,7 @@ function App() {
         <div className="content">
           <Routes>
             <Route path="/" element={<Homepage />} />
+            {/* routing of different categories */}
             <Route path="category">
               <Route path=":categoryId" element={<Category />} />
               <Route
@@ -29,9 +32,14 @@ function App() {
                 element={<QuizMode key={routeKey} />}
               />
             </Route>
+            {/* practice quiz */}
             <Route path="quiz" element={<QuizMode key={routeKey} />} />
-            <Route path="result" element={<Results />} />
 
+            {/* results page */}
+            <Route path="result" element={<Results />} />
+            <Route path="result/:cardIndex" element={<ReviewMode />} />
+
+            {/* access all questions bookmarked */}
             <Route path="bookmark" element={<Bookmark />} />
             <Route
               path="bookmark/:cardIndex"
