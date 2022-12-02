@@ -3,7 +3,7 @@ import styles from "./styles.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { StudyButtons, QuizButtons } from "./Buttons";
 import { add, remove } from "../../store/bookmarksSlice";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BsBookmark, BsBookmarkFill } from "react-icons/bs";
 
 const CardLayout = ({
@@ -12,6 +12,7 @@ const CardLayout = ({
   activeIndex,
   title,
   isQuiz,
+  isReview,
   categoryId,
   handleSkip,
   handleNext,
@@ -29,6 +30,13 @@ const CardLayout = ({
   };
   // return boolean on if individual card is bookmarked
   const isBookmarked = bookmarkState.indexOf(id) >= 0;
+
+  // check if in review mode, show back of card with answers
+  useEffect(() => {
+    if (isReview) {
+      setIsFlipped(true);
+    }
+  }, [isReview]);
 
   const handleFlip = () => {
     setIsFlipped(!isFlipped);

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { start, skip } from "../../store/quizSlice";
+import { fetchQuiz, skip } from "../../store/quizSlice";
 import data from "../../assets/output.json";
 import groups from "../../assets/grouped";
 import CardLayout from "../../components/CardLayout";
@@ -11,7 +11,6 @@ const QuizMode = () => {
   const navigate = useNavigate();
 
   const [activeIndex, setActiveIndex] = useState(0);
-  const [quizArray, setQuizArray] = useState([]);
 
   const dispatch = useDispatch();
   const quiz = useSelector((state) => state.quiz);
@@ -27,6 +26,7 @@ const QuizMode = () => {
     setActiveIndex(activeIndex + 1);
   };
 
+  // TODO: look into if async can be used to generate quiz data arrray
   // create array of 10 random non-repeating indexes to use for quiz ?s
   useEffect(() => {
     let result = [];
@@ -44,23 +44,19 @@ const QuizMode = () => {
         result.push(randomNum);
       }
     }
-    dispatch(start({ indexes: result }));
-  }, [dispatch, categoryId]);
+    // go through ids and create an array of q details objects
+    if (result.length === 10) {
+      let resultA = result.map((idx) => {
+        return data.questions.find(({ id }) => idx === id);
+      });
+      dispatch(fetchQuiz({ quizArr: resultA }));
+    }
+  }, [categoryId, dispatch]);
 
   // title of category quiz vs practice quiz
   const quizTitle = groups[categoryId]
     ? "Quiz: " + groups[categoryId].title
     : "Quiz";
-
-  // go through ids and create an array of q details objects
-  useEffect(() => {
-    if (quiz.ids.length === 10) {
-      let resultA = quiz.ids.map((idx) => {
-        return data.questions.find(({ id }) => idx === id);
-      });
-      setQuizArray(resultA);
-    }
-  }, [quiz.ids]);
 
   // navigate to Results page once all 10 questions have been answered
   useEffect(() => {
@@ -68,14 +64,15 @@ const QuizMode = () => {
       navigate("/result");
     }
   }, [activeIndex, navigate]);
+
   return (
     <>
-      {quizArray.length > 0 && activeIndex !== 10 ? (
+      {quiz.data.length > 0 && activeIndex !== 10 ? (
         <CardLayout
-          data={quizArray[activeIndex]}
+          data={quiz.data[activeIndex]}
           handleNext={handleNext}
           activeIndex={activeIndex + 1}
-          totalQ={quiz.ids.length}
+          totalQ={quiz.data.length}
           title={quizTitle}
           handleSkip={handleSkip}
           isQuiz={true}
