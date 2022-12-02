@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useHref } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { correct, incorrect } from "../../store/quizSlice";
 import clsx from "clsx";
@@ -12,14 +12,14 @@ import {
 import styles from "./styles.module.scss";
 
 export const StudyButtons = ({ activeIndex, categoryId, totalQ }) => {
+  const href = useHref();
+  let tempArr = href.split("/").slice(0, -1).join("/");
   return (
     <>
       {/* PREV */}
       <Link
         className={styles.btn}
-        to={`/category/${categoryId}/${
-          activeIndex === 1 ? totalQ : activeIndex - 1
-        }`}
+        to={`${tempArr}/${activeIndex === 1 ? totalQ : activeIndex - 1}`}
       >
         <span>Prev</span>
         <span className={styles.iconWrap}>
@@ -29,9 +29,7 @@ export const StudyButtons = ({ activeIndex, categoryId, totalQ }) => {
       {/* next */}
       <Link
         className={styles.btn}
-        to={`/category/${categoryId}/${
-          activeIndex === totalQ ? 1 : activeIndex + 1
-        }`}
+        to={`${tempArr}/${activeIndex === totalQ ? 1 : activeIndex + 1}`}
       >
         <span>Next</span>
         <span className={styles.iconWrap}>
