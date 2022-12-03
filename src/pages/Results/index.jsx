@@ -37,12 +37,15 @@ const Results = () => {
   // use to detech if dark mode is system preference
   const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-  //
+  //navigate back to start of quiz if quiz stats are not complete
   useEffect(() => {
-    if (quiz.data.length !== 10) {
-      navigate("/quiz", { replace: true });
+    if (quiz.stats) {
+      const quizStatsLength = Object.keys(quiz.stats).length;
+      if (quizStatsLength !== 10) {
+        navigate("/quiz", { replace: true });
+      }
     }
-  }, [quiz.data, navigate]);
+  }, [quiz.stats, navigate]);
 
   return (
     <div className={styles.resultContainer}>
