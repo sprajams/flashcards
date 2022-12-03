@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import styles from "./styles.module.scss";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useHref } from "react-router-dom";
 import { StudyButtons, QuizButtons } from "./Buttons";
 import { add, remove } from "../../store/bookmarksSlice";
 import { useState, useEffect } from "react";
@@ -17,7 +18,17 @@ const CardLayout = ({
   handleSkip,
   handleNext,
 }) => {
-  const { question, options, id } = data;
+  const { question, options, id } = data || {};
+  const href = useHref();
+  const navigate = useNavigate();
+
+  // re-direct user to home if data object is empty to avoid cardlayout not displaying
+  useEffect(() => {
+    if (!data) {
+      navigate("/", { replace: true });
+    }
+  }, [data, href, navigate]);
+
   const [isFlipped, setIsFlipped] = useState(false);
   // get state of bookmarks
   const bookmarkState = useSelector((state) => state.bookmarks);
