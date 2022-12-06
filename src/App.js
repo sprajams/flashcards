@@ -4,19 +4,29 @@ import { Routes, Route, useHref } from "react-router-dom";
 import Category from "./pages/Category";
 import Bookmark from "./pages/Bookmark";
 import BackLink from "./components/BackLink";
+import ModalIcon from "./components/ModalIcon";
 import QuizMode from "./pages/QuizMode";
 import Results from "./pages/Results";
 import ReviewMode from "./pages/ReviewMode";
-
+import { useState } from "react";
+import ModalOverlay from "./components/ModalOverlay";
 import "./App.scss";
 
 function App() {
   const routeKey = useHref(); //return the current URL which changes on navigation
   const isHome = routeKey === "/"; // true when in root
+
+  const [isOpen, setIsOpen] = useState(false);
+  const handleOnclick = () => {
+    setIsOpen(!isOpen);
+    console.log("open");
+  };
   return (
     <div className="outer">
       <div className="inner">
-        <div className="navbar">{isHome ? null : <BackLink />}</div>
+        <div className="navbar">
+          {isHome ? <ModalIcon handleOnclick={handleOnclick} /> : <BackLink />}
+        </div>
         <div className="content">
           <Routes>
             <Route path="/" element={<Homepage />} />
@@ -46,6 +56,9 @@ function App() {
               element={<StudyMode key={routeKey} />}
             />
           </Routes>
+          {isOpen ? (
+            <ModalOverlay isOpen={isOpen} handleOnclick={handleOnclick} />
+          ) : null}
         </div>
       </div>
     </div>
