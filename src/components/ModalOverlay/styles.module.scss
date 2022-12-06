@@ -13,7 +13,10 @@
 }
 .modalInner {
   padding: 36px 40px;
-  background: black;
+  background: rgb(223, 221, 221);
+  @media (prefers-color-scheme: dark) {
+    background: black;
+  }
   border-radius: 8px;
   opacity: 1;
   margin: 20px;
