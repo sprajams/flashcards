@@ -17,16 +17,17 @@ const ModalOverlay = ({ isOpen, handleOnclick }) => {
         </button>
         <h2>Happy studying!</h2>
         <h3>Currently learning: Civics Test</h3>
-        <h4>Answers taylored towards California residents</h4>
-        <h5>Last updated: 2022</h5>
         <p>
-          Test bank of 100 questions. You may be asked any 10 random questions
-          and you must answer 6 correctly. This app is a study aid to help you
-          on your journey to citizenship.
+          This app is a study aid as part of your journey towards citizenship!
+          🇺🇸 <br /> Test bank of 100 questions. <br />
+          You must answer 6 questions correctly out of 10 random questions to
+          pass.
         </p>
+        <h5>Some answers are tailored towards California residents 🐻</h5>
+        <h6>Last updated: 2022</h6>
         <small>
-          Disclaimer: check your area's latest website for the most up to the
-          date info
+          Disclaimer: check your area's latest website(s) for the most up to the
+          date info.
         </small>
       </div>
     </div>
