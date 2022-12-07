@@ -1,15 +1,30 @@
+import { motion } from "framer-motion";
 const cleanPercentage = (percentage) => {
   const tooLow = !Number.isFinite(+percentage) || percentage < 0;
   const tooHigh = percentage > 100;
   return tooLow ? 0 : tooHigh ? 100 : +percentage;
 };
 
-const Circle = ({ color, pct }) => {
+const Circle = ({ color, pct, animate }) => {
   const r = 60;
   const circ = 2 * Math.PI * r;
   const strokePct = ((100 - pct) * circ) / 100;
+  const draw = {
+    hidden: { opacity: 0, pathLength: 0 },
+    visible: (i) => {
+      // const delay = 1 + i * 0.5;
+      return {
+        opacity: 1,
+        pathLength: pct / 100 || 0,
+        transition: {
+          pathLength: { type: "spring", duration: 2.5, bounce: 0 },
+          opacity: { duration: 0.01 },
+        },
+      };
+    },
+  };
   return (
-    <circle
+    <motion.circle
       r={r}
       cx={80}
       cy={80}
@@ -19,7 +34,9 @@ const Circle = ({ color, pct }) => {
       strokeDasharray={circ}
       strokeDashoffset={pct ? strokePct : 0}
       strokeLinecap="round"
-    ></circle>
+      variants={animate ? draw : ""}
+      key={pct}
+    ></motion.circle>
   );
 };
 
@@ -31,11 +48,11 @@ const ResultCircle = ({
 }) => {
   const pct = cleanPercentage(percentage);
   return (
-    <svg width={160} height={160}>
+    <motion.svg width={160} height={160} initial="hidden" animate="visible">
       {/* g tag used to group other svg elements */}
       <g transform={`rotate(-90 ${"80 80"})`}>
         <Circle color={colorSecondary} />
-        <Circle color={colorPrimary} pct={pct} />
+        <Circle color={colorPrimary} pct={pct} animate={true} />
       </g>
       <text
         x="50%"
@@ -47,7 +64,7 @@ const ResultCircle = ({
       >
         {pct.toFixed(0)}%
       </text>
-    </svg>
+    </motion.svg>
   );
 };
 
