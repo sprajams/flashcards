@@ -5,6 +5,7 @@ import styles from "./styles.module.scss";
 import { HiOutlineEmojiHappy, HiOutlineEmojiSad } from "react-icons/hi";
 import { useEffect, useCallback } from "react";
 import QuestionsList from "../../components/QuestionsList";
+import { motion } from "framer-motion";
 
 const Results = () => {
   const quiz = useSelector((state) => state.quiz);
@@ -71,9 +72,14 @@ const Results = () => {
           textColor={darkThemeMq ? "white" : "black"}
         />
       </div>
-      <button onClick={handleRetry} className={styles.retryBtn}>
+      <motion.button
+        onClick={handleRetry}
+        className={styles.retryBtn}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+      >
         retry
-      </button>
+      </motion.button>
       <div className={styles.questionsWrap}>
         <h4>Questions:</h4>
         <QuestionsList data={quiz.data} results={results} />
