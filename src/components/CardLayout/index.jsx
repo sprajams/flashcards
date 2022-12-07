@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import clsx from "clsx";
 import styles from "./styles.module.scss";
 import { useDispatch, useSelector } from "react-redux";
@@ -49,67 +50,123 @@ const CardLayout = ({
     }
   }, [isReview]);
 
+  // state of a click to flip card
+  const [clicked, setClicked] = useState(false);
+
   const handleFlip = () => {
     setIsFlipped(!isFlipped);
+    setClicked(true);
+  };
+
+  // state of card clicked to default to false after 0.5s
+  useEffect(() => {
+    let timeout;
+    if (clicked) {
+      timeout = setTimeout(() => setClicked(false), 500);
+    }
+    return () => clearTimeout(timeout);
+  }, [clicked]);
+
+  const variants = {
+    flip: {
+      rotateY: 180,
+      transition: {
+        duration: 0.6,
+      },
+    },
+    text: {
+      opacity: 1,
+      scale: 1,
+    },
   };
 
   return (
     <div className={styles.outer}>
       <h2 className={styles.title}>{title}</h2>
-      <div className={styles.cardContainer}>
-        <div className={styles.topContainer}>
-          <div className={clsx(styles.topInfo, styles.infoSmall)}>
-            <h4>Question: </h4>
-            <div className={styles.qInfoWrap}>
-              <span>
-                {activeIndex} / {totalQ}
-              </span>
-              {/* bookmark icon/button */}
-              {isBookmarked ? (
-                <button
-                  className={clsx(styles.infoSmall, styles.bookmarkBtn)}
-                  onClick={handleUnbookmark}
-                >
-                  {/* bookmarked, filled icon */}
-                  <BsBookmarkFill className={styles.icon} />
-                </button>
-              ) : (
-                <button
-                  className={clsx(styles.infoSmall, styles.bookmarkBtn)}
-                  onClick={handleBookmark}
-                >
-                  {/* bookmark-able, outlined icon */}
-                  <BsBookmark className={styles.icon} />
-                </button>
-              )}
+      {/* card */}
+      <motion.div
+        className={styles.cardWrap}
+        key={id}
+        initial={{ x: -80, rotate: -6 }}
+        animate={{ x: 0, rotate: 0 }}
+        transition={{
+          duration: 0.5,
+          when: "beforeChildren",
+        }}
+      >
+        <motion.div
+          className={styles.cardContainer}
+          key={clicked}
+          variants={variants}
+          animate={clicked ? "flip" : ""}
+        ></motion.div>
+        <motion.div
+          className={styles.cardContent}
+          initial={{ opacity: 0, scale: 0.95 }}
+          variants={variants}
+          animate={"text"}
+          key={isFlipped + href}
+          transition={{
+            duration: 1,
+            delay: 0.4,
+            ease: [0, 0.71, 0.2, 1.01],
+          }}
+        >
+          <div className={styles.topContainer}>
+            <div className={clsx(styles.topInfo, styles.infoSmall)}>
+              <h4>Question: </h4>
+              <div className={styles.qInfoWrap}>
+                <span>
+                  {activeIndex} / {totalQ}
+                </span>
+                {/* bookmark icon/button */}
+                {isBookmarked ? (
+                  <button
+                    className={clsx(styles.infoSmall, styles.bookmarkBtn)}
+                    onClick={handleUnbookmark}
+                  >
+                    {/* bookmarked, filled icon */}
+                    <BsBookmarkFill className={styles.icon} />
+                  </button>
+                ) : (
+                  <button
+                    className={clsx(styles.infoSmall, styles.bookmarkBtn)}
+                    onClick={handleBookmark}
+                  >
+                    {/* bookmark-able, outlined icon */}
+                    <BsBookmark className={styles.icon} />
+                  </button>
+                )}
+              </div>
             </div>
+            {isFlipped ? <h3 className={styles.infoBig}>{question}</h3> : null}
           </div>
-          {isFlipped ? <h3 className={styles.infoBig}>{question}</h3> : null}
-        </div>
 
-        <div className={styles.mainWrap}>
-          {isFlipped ? (
-            <ul className={styles.answerWrap}>
-              {options.length > 0
-                ? options.map((elem, i) => {
-                    return <li key={i}>{elem}</li>;
-                  })
-                : null}
-            </ul>
-          ) : (
-            <h2>{question}</h2>
-          )}
-        </div>
+          <div className={styles.mainWrap}>
+            {isFlipped ? (
+              <ul className={styles.answerWrap}>
+                {options.length > 0
+                  ? options.map((elem, i) => {
+                      return <li key={i}>{elem}</li>;
+                    })
+                  : null}
+              </ul>
+            ) : (
+              <h2>{question}</h2>
+            )}
+          </div>
 
-        <div className={styles.bottomWrap}>
-          <button
-            className={clsx(styles.infoSmall, styles.answerBtnWrap)}
-            onClick={handleFlip}
-          >
-            {isFlipped ? "Show Question" : "Show Answer"}
-          </button>
-        </div>
-      </div>
+          <div className={styles.bottomWrap}>
+            <button
+              className={clsx(styles.infoSmall, styles.answerBtnWrap)}
+              onClick={handleFlip}
+            >
+              {isFlipped ? "Show Question" : "Show Answer"}
+            </button>
+          </div>
+        </motion.div>
+      </motion.div>
+      {/* interactive buttons */}
       <div className={styles.btnContainer}>
         {/* show correct & incorrect buttons (buttonsFlipped) only if available in quiz mode */}
         {/* {isFlipped ? buttonsFlipped ?? buttons : "buttons"} */}
