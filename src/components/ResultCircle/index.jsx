@@ -10,19 +10,18 @@ const Circle = ({ color, pct, animate }) => {
   const circ = 2 * Math.PI * r;
   const strokePct = ((100 - pct) * circ) / 100;
   const draw = {
-    hidden: { opacity: 0, pathLength: 0 },
+    hidden: { pathLength: 0 },
     visible: (i) => {
-      // const delay = 1 + i * 0.5;
       return {
-        opacity: 1,
         pathLength: pct / 100 || 0,
         transition: {
-          pathLength: { type: "spring", duration: 2.5, bounce: 0 },
+          pathLength: { duration: 1.4, bounce: 0 },
           opacity: { duration: 0.01 },
         },
       };
     },
   };
+
   return (
     <motion.circle
       r={r}
@@ -47,6 +46,8 @@ const ResultCircle = ({
   textColor,
 }) => {
   const pct = cleanPercentage(percentage);
+  const duration = (pct / 10) * 0.5 || 1;
+  console.log(duration, pct);
   return (
     <motion.svg width={160} height={160} initial="hidden" animate="visible">
       {/* g tag used to group other svg elements */}
@@ -54,16 +55,23 @@ const ResultCircle = ({
         <Circle color={colorSecondary} />
         <Circle color={colorPrimary} pct={pct} animate={true} />
       </g>
-      <text
+      <motion.text
         x="50%"
         y="50%"
         fill={textColor}
         dominantBaseline="central"
         textAnchor="middle"
         fontSize={"1.8em"}
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={
+          pct === 0
+            ? { delay: 0.2, duration: 0.4 }
+            : { delay: 1, duration: 0.4 }
+        }
       >
-        {pct.toFixed(0)}%
-      </text>
+        {pct}%
+      </motion.text>
     </motion.svg>
   );
 };
