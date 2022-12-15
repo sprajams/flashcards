@@ -46,8 +46,7 @@ const ResultCircle = ({
   textColor,
 }) => {
   const pct = cleanPercentage(percentage);
-  const duration = (pct / 10) * 0.5 || 1;
-  console.log(duration, pct);
+
   return (
     <motion.svg width={160} height={160} initial="hidden" animate="visible">
       {/* g tag used to group other svg elements */}
