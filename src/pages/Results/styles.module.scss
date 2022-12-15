@@ -63,9 +63,8 @@
   align-items: center;
   cursor: pointer;
   background: inherit;
-  @media (prefers-color-scheme: dark) {
-    border: none;
-  }
+  color: inherit;
+  border: 2px solid var(--color-text-primary);
 }
 .questionsWrap {
   margin-top: 20px;
