@@ -19,7 +19,6 @@ function App() {
   const [isOpen, setIsOpen] = useState(false);
   const handleOnclick = () => {
     setIsOpen(!isOpen);
-    console.log("open");
   };
   return (
     <div className="outer">
@@ -56,9 +55,7 @@ function App() {
               element={<StudyMode key={routeKey} />}
             />
           </Routes>
-          {isOpen ? (
-            <ModalOverlay isOpen={isOpen} handleOnclick={handleOnclick} />
-          ) : null}
+          <ModalOverlay isOpen={isOpen} handleOnclick={handleOnclick} />
         </div>
       </div>
     </div>

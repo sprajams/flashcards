@@ -5,6 +5,7 @@ import styles from "./styles.module.scss";
 import { HiOutlineEmojiHappy, HiOutlineEmojiSad } from "react-icons/hi";
 import { useEffect, useCallback } from "react";
 import QuestionsList from "../../components/QuestionsList";
+import { motion } from "framer-motion";
 
 const Results = () => {
   const quiz = useSelector((state) => state.quiz);
@@ -37,7 +38,7 @@ const Results = () => {
   // use to detech if dark mode is system preference
   const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-  //navigate back to start of quiz if quiz stats are not complete
+  // navigate back to start of quiz if quiz stats are not complete
   useEffect(() => {
     if (quiz.stats) {
       const quizStatsLength = Object.keys(quiz.stats).length;
@@ -67,17 +68,29 @@ const Results = () => {
         <ResultCircle
           percentage={percentCorrect}
           colorPrimary={isPassing ? "#29824e" : "#be5050"}
-          colorSecondary={"#cdd2cf"}
+          colorSecondary={
+            darkThemeMq ? "rgba(255, 255, 255, 0.55)" : "rgba(0, 0, 0, 0.2)"
+          }
           textColor={darkThemeMq ? "white" : "black"}
         />
       </div>
-      <button onClick={handleRetry} className={styles.retryBtn}>
+      <motion.button
+        onClick={handleRetry}
+        className={styles.retryBtn}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
         retry
-      </button>
-      <div className={styles.questionsWrap}>
+      </motion.button>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.4, duration: 0.6 }}
+        className={styles.questionsWrap}
+      >
         <h4>Questions:</h4>
         <QuestionsList data={quiz.data} results={results} />
-      </div>
+      </motion.div>
     </div>
   );
 };

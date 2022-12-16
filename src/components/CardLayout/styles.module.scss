@@ -5,6 +5,7 @@
   justify-content: center;
   gap: 8px;
   color: var(--color-text-primary);
+  overflow: hidden; // added to try out motions on card
   @media (min-width: 768px) {
     gap: 16px;
   }
@@ -13,16 +14,16 @@
 .title {
   text-align: center;
 }
+.cardWrap {
+  position: relative;
+  height: 100%;
+}
 .cardContainer {
-  flex: 1 1 auto;
   border-radius: 8px;
-  padding: 8px 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 8px;
-  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
   color: var(--color-text-primary);
   background: rgb(227, 224, 224);
   border-top: 16px solid rgb(75, 81, 133);
@@ -32,11 +33,26 @@
     border-top: 16px solid rgb(107, 82, 62);
     border-bottom: 16px solid rgb(107, 82, 62);
   }
+}
+.cardContent {
+  height: 100%;
+  width: 100%;
+  flex: 1 1 auto;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  position: absolute;
+  top: 0;
   @media (min-width: 768px) {
     gap: 16px;
-    padding: 16px 24px;
+    padding: 24px;
   }
 }
+
 // TOP
 .topContainer {
   display: flex;

@@ -26,7 +26,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: floor($number: 0) 8px;
+  gap: 8px;
   margin: 8px 0;
 }
 .resultText {
@@ -58,11 +58,13 @@
   font-size: 1.2rem;
   margin: 20px auto 0;
   display: flex;
-  border: none;
   border-radius: 8px;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  background: inherit;
+  color: inherit;
+  border: 2px solid var(--color-text-primary);
 }
 .questionsWrap {
   margin-top: 20px;
