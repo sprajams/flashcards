@@ -8,7 +8,7 @@ import { add, remove } from "../../store/bookmarksSlice";
 import { useState, useEffect } from "react";
 import { BsBookmark, BsBookmarkFill } from "react-icons/bs";
 import { useSpeech } from "../../contexts/SpeechContext";
-import { HiOutlineVolumeUp } from "react-icons/hi";
+import { SpeechButtons } from "../SpeechButtons";
 
 const CardLayout = ({
   data,
@@ -21,7 +21,7 @@ const CardLayout = ({
   handleSkip,
   handleNext,
 }) => {
-  const { speak, cancel, isSpeaking } = useSpeech();
+  const { cancel } = useSpeech();
 
   const { question, options, id } = data || {};
   const href = useHref();
@@ -86,10 +86,6 @@ const CardLayout = ({
   };
 
   const textToSpeech = isFlipped ? options : question;
-
-  const handleSpeak = () => {
-    speak(textToSpeech);
-  };
 
   return (
     <div className={styles.outer}>
@@ -166,27 +162,12 @@ const CardLayout = ({
               ) : (
                 <h2>{question}</h2>
               )}
-              {/* TODO: absract into SpeechButton */}
-              <button
-                className={styles.btn}
-                type="button"
-                onClick={handleSpeak}
-                disabled={isSpeaking}
-              >
-                <span className={clsx(styles.iconWrap, styles.iconSpeak)}>
-                  <HiOutlineVolumeUp className={styles.icon} />
-                </span>
-              </button>
             </>
           </div>
 
-          <div className={styles.bottomWrap}>
-            <button
-              className={clsx(styles.infoSmall, styles.answerBtnWrap)}
-              onClick={handleFlip}
-            >
-              {isFlipped ? "Show Question" : "Show Answer"}
-            </button>
+          <div className={clsx(styles.bottomWrap, styles.infoSmall)}>
+            {/* text-to-speech & mute buttons */}
+            <SpeechButtons text={textToSpeech} />
           </div>
         </motion.div>
       </motion.div>
@@ -207,6 +188,7 @@ const CardLayout = ({
           <StudyButtons
             data={data}
             totalQ={totalQ}
+            handleFlip={handleFlip}
             activeIndex={activeIndex}
             categoryId={categoryId}
           />

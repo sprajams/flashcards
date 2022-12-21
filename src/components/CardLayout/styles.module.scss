@@ -108,20 +108,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   width: 100%;
-}
-.answerBtnWrap {
-  cursor: pointer;
-  background-color: inherit;
-  border: none;
-  padding: 8px;
-  font-size: 1.25rem;
-  @media (hover: hover) and (pointer: fine) {
-    &:hover {
-      text-decoration: underline;
-    }
-  }
 }
 
 .bookmarkBtn {
