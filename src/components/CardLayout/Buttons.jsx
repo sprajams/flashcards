@@ -1,7 +1,6 @@
 import { Link, useHref } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { correct, incorrect } from "../../store/quizSlice";
-import { motion } from "framer-motion";
 import clsx from "clsx";
 import {
   HiArrowNarrowLeft,
@@ -13,7 +12,7 @@ import {
 import { useSpeech } from "../../contexts/SpeechContext";
 import styles from "./styles.module.scss";
 
-export const StudyButtons = ({ activeIndex, categoryId, totalQ }) => {
+export const StudyButtons = ({ activeIndex, handleFlip, totalQ }) => {
   const href = useHref();
   let tempArr = href.split("/").slice(0, -1).join("/");
   const { cancel } = useSpeech();
@@ -25,11 +24,20 @@ export const StudyButtons = ({ activeIndex, categoryId, totalQ }) => {
         className={styles.btn}
         onClick={() => cancel()}
       >
-        <span whileHover={{ scale: 0.95 }}>Prev</span>
-        <span whileHover={{ scale: 1.05 }} className={styles.iconWrap}>
+        <span>Prev</span>
+        <span className={styles.iconWrap}>
           <HiArrowNarrowLeft className={styles.icon} />
         </span>
       </Link>
+
+      {/* check */}
+      <button className={styles.btn} onClick={handleFlip}>
+        <span>Check</span>
+        <span className={styles.iconWrap}>
+          <HiOutlineRefresh className={styles.icon} />
+        </span>
+      </button>
+
       {/* next */}
       <Link
         className={styles.btn}
@@ -72,12 +80,7 @@ export const QuizButtons = ({
     <>
       {isFlipped ? (
         <>
-          <motion.button
-            whileHover={{ scale: 1.15 }}
-            whileTap={{ scale: 0.95 }}
-            className={styles.btn}
-            onClick={handleIncorrect}
-          >
+          <button className={styles.btn} onClick={handleIncorrect}>
             {/* Inorrect */}
             <span className={clsx(styles.iconWrap, styles.iconWrapNoOutline)}>
               <HiOutlineEmojiSad
@@ -88,7 +91,7 @@ export const QuizButtons = ({
                 )}
               />
             </span>
-          </motion.button>
+          </button>
           <button className={styles.btn} onClick={handleCorrect}>
             {/* correct icon */}
             <span className={clsx(styles.iconWrap, styles.iconWrapNoOutline)}>
