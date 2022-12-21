@@ -21,7 +21,7 @@ const BackLink = () => {
 
   return (
     //TODO: is there a better method than hardcoding?
-    <button className={styles.backLink} onClick={handleBack}>
+    <button type="button" className={styles.backLink} onClick={handleBack}>
       <span className={styles.iconWrap}>
         <HiChevronLeft />
       </span>

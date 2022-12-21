@@ -129,6 +129,7 @@ const CardLayout = ({
                 {/* bookmark icon/button */}
                 {isBookmarked ? (
                   <button
+                    type="button"
                     className={clsx(styles.infoSmall, styles.bookmarkBtn)}
                     onClick={handleUnbookmark}
                   >
@@ -137,6 +138,7 @@ const CardLayout = ({
                   </button>
                 ) : (
                   <button
+                    type="button"
                     className={clsx(styles.infoSmall, styles.bookmarkBtn)}
                     onClick={handleBookmark}
                   >

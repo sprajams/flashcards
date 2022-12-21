@@ -31,7 +31,7 @@ export const StudyButtons = ({ activeIndex, handleFlip, totalQ }) => {
       </Link>
 
       {/* check */}
-      <button className={styles.btn} onClick={handleFlip}>
+      <button type="button" className={styles.btn} onClick={handleFlip}>
         <span>Check</span>
         <span className={styles.iconWrap}>
           <HiOutlineRefresh className={styles.icon} />
@@ -80,7 +80,11 @@ export const QuizButtons = ({
     <>
       {isFlipped ? (
         <>
-          <button className={styles.btn} onClick={handleIncorrect}>
+          <button
+            type="button"
+            className={styles.btn}
+            onClick={handleIncorrect}
+          >
             {/* Inorrect */}
             <span className={clsx(styles.iconWrap, styles.iconWrapNoOutline)}>
               <HiOutlineEmojiSad
@@ -92,7 +96,7 @@ export const QuizButtons = ({
               />
             </span>
           </button>
-          <button className={styles.btn} onClick={handleCorrect}>
+          <button type="button" className={styles.btn} onClick={handleCorrect}>
             {/* correct icon */}
             <span className={clsx(styles.iconWrap, styles.iconWrapNoOutline)}>
               <HiOutlineEmojiHappy
@@ -107,13 +111,13 @@ export const QuizButtons = ({
         </>
       ) : (
         <>
-          <button className={styles.btn} onClick={handleSkip}>
+          <button type="button" className={styles.btn} onClick={handleSkip}>
             <span>Skip</span>
             <span className={styles.iconWrap}>
               <HiArrowNarrowRight className={styles.icon} />
             </span>
           </button>
-          <button className={styles.btn} onClick={handleFlip}>
+          <button type="button" className={styles.btn} onClick={handleFlip}>
             <span>Check</span>
             <span className={styles.iconWrap}>
               <HiOutlineRefresh className={styles.icon} />
