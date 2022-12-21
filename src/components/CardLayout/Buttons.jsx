@@ -9,27 +9,40 @@ import {
   HiOutlineEmojiHappy,
   HiOutlineEmojiSad,
 } from "react-icons/hi";
+import { useSpeech } from "../../contexts/SpeechContext";
 import styles from "./styles.module.scss";
 
-export const StudyButtons = ({ activeIndex, categoryId, totalQ }) => {
+export const StudyButtons = ({ activeIndex, handleFlip, totalQ }) => {
   const href = useHref();
   let tempArr = href.split("/").slice(0, -1).join("/");
+  const { cancel } = useSpeech();
   return (
     <>
       {/* PREV */}
       <Link
-        className={styles.btn}
         to={`${tempArr}/${activeIndex === 1 ? totalQ : activeIndex - 1}`}
+        className={styles.btn}
+        onClick={() => cancel()}
       >
         <span>Prev</span>
         <span className={styles.iconWrap}>
           <HiArrowNarrowLeft className={styles.icon} />
         </span>
       </Link>
+
+      {/* check */}
+      <button className={styles.btn} onClick={handleFlip}>
+        <span>Check</span>
+        <span className={styles.iconWrap}>
+          <HiOutlineRefresh className={styles.icon} />
+        </span>
+      </button>
+
       {/* next */}
       <Link
         className={styles.btn}
         to={`${tempArr}/${activeIndex === totalQ ? 1 : activeIndex + 1}`}
+        onClick={() => cancel()}
       >
         <span>Next</span>
         <span className={styles.iconWrap}>
@@ -49,16 +62,19 @@ export const QuizButtons = ({
   quizId,
 }) => {
   const dispatch = useDispatch();
+  const { cancel } = useSpeech();
 
   const handleCorrect = () => {
     dispatch(correct({ id: quizId, answer: true }));
     setIsFlipped(!isFlipped);
     handleNext();
+    cancel();
   };
   const handleIncorrect = () => {
     dispatch(incorrect({ id: quizId, answer: false }));
     setIsFlipped(!isFlipped);
     handleNext();
+    cancel();
   };
   return (
     <>
