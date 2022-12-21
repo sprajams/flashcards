@@ -144,6 +144,7 @@
   gap: 32px;
   align-items: center;
   flex: 0 0 64px;
+  z-index: 1;
 }
 
 // BUTTONS
@@ -159,6 +160,7 @@
     }
   }
 }
+
 .iconWrapNoOutline {
   border: none;
   padding: 0;
@@ -187,6 +189,20 @@
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       text-decoration: none;
+    }
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+.iconSpeak {
+  border: none;
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      border: none;
     }
   }
 }

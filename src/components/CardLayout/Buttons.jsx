@@ -1,6 +1,7 @@
 import { Link, useHref } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { correct, incorrect } from "../../store/quizSlice";
+import { motion } from "framer-motion";
 import clsx from "clsx";
 import {
   HiArrowNarrowLeft,
@@ -9,20 +10,23 @@ import {
   HiOutlineEmojiHappy,
   HiOutlineEmojiSad,
 } from "react-icons/hi";
+import { useSpeech } from "../../contexts/SpeechContext";
 import styles from "./styles.module.scss";
 
 export const StudyButtons = ({ activeIndex, categoryId, totalQ }) => {
   const href = useHref();
   let tempArr = href.split("/").slice(0, -1).join("/");
+  const { cancel } = useSpeech();
   return (
     <>
       {/* PREV */}
       <Link
-        className={styles.btn}
         to={`${tempArr}/${activeIndex === 1 ? totalQ : activeIndex - 1}`}
+        className={styles.btn}
+        onClick={() => cancel()}
       >
-        <span>Prev</span>
-        <span className={styles.iconWrap}>
+        <span whileHover={{ scale: 0.95 }}>Prev</span>
+        <span whileHover={{ scale: 1.05 }} className={styles.iconWrap}>
           <HiArrowNarrowLeft className={styles.icon} />
         </span>
       </Link>
@@ -30,6 +34,7 @@ export const StudyButtons = ({ activeIndex, categoryId, totalQ }) => {
       <Link
         className={styles.btn}
         to={`${tempArr}/${activeIndex === totalQ ? 1 : activeIndex + 1}`}
+        onClick={() => cancel()}
       >
         <span>Next</span>
         <span className={styles.iconWrap}>
@@ -49,22 +54,30 @@ export const QuizButtons = ({
   quizId,
 }) => {
   const dispatch = useDispatch();
+  const { cancel } = useSpeech();
 
   const handleCorrect = () => {
     dispatch(correct({ id: quizId, answer: true }));
     setIsFlipped(!isFlipped);
     handleNext();
+    cancel();
   };
   const handleIncorrect = () => {
     dispatch(incorrect({ id: quizId, answer: false }));
     setIsFlipped(!isFlipped);
     handleNext();
+    cancel();
   };
   return (
     <>
       {isFlipped ? (
         <>
-          <button className={styles.btn} onClick={handleIncorrect}>
+          <motion.button
+            whileHover={{ scale: 1.15 }}
+            whileTap={{ scale: 0.95 }}
+            className={styles.btn}
+            onClick={handleIncorrect}
+          >
             {/* Inorrect */}
             <span className={clsx(styles.iconWrap, styles.iconWrapNoOutline)}>
               <HiOutlineEmojiSad
@@ -75,7 +88,7 @@ export const QuizButtons = ({
                 )}
               />
             </span>
-          </button>
+          </motion.button>
           <button className={styles.btn} onClick={handleCorrect}>
             {/* correct icon */}
             <span className={clsx(styles.iconWrap, styles.iconWrapNoOutline)}>

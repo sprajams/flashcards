@@ -7,6 +7,8 @@ import { StudyButtons, QuizButtons } from "./Buttons";
 import { add, remove } from "../../store/bookmarksSlice";
 import { useState, useEffect } from "react";
 import { BsBookmark, BsBookmarkFill } from "react-icons/bs";
+import { useSpeech } from "../../contexts/SpeechContext";
+import { HiOutlineVolumeUp } from "react-icons/hi";
 
 const CardLayout = ({
   data,
@@ -19,6 +21,8 @@ const CardLayout = ({
   handleSkip,
   handleNext,
 }) => {
+  const { speak, cancel, isSpeaking } = useSpeech();
+
   const { question, options, id } = data || {};
   const href = useHref();
   const navigate = useNavigate();
@@ -56,6 +60,7 @@ const CardLayout = ({
   const handleFlip = () => {
     setIsFlipped(!isFlipped);
     setClicked(true);
+    cancel();
   };
 
   // state of card clicked to default to false after 0.5s
@@ -78,6 +83,12 @@ const CardLayout = ({
       opacity: 1,
       scale: 1,
     },
+  };
+
+  const textToSpeech = isFlipped ? options : question;
+
+  const handleSpeak = () => {
+    speak(textToSpeech);
   };
 
   return (
@@ -143,17 +154,30 @@ const CardLayout = ({
           </div>
 
           <div className={styles.mainWrap}>
-            {isFlipped ? (
-              <ul className={styles.answerWrap}>
-                {options.length > 0
-                  ? options.map((elem, i) => {
-                      return <li key={i}>{elem}</li>;
-                    })
-                  : null}
-              </ul>
-            ) : (
-              <h2>{question}</h2>
-            )}
+            <>
+              {isFlipped ? (
+                <ul className={styles.answerWrap}>
+                  {options.length > 0
+                    ? options.map((elem, i) => {
+                        return <li key={i}>{elem}</li>;
+                      })
+                    : null}
+                </ul>
+              ) : (
+                <h2>{question}</h2>
+              )}
+              {/* TODO: absract into SpeechButton */}
+              <button
+                className={styles.btn}
+                type="button"
+                onClick={handleSpeak}
+                disabled={isSpeaking}
+              >
+                <span className={clsx(styles.iconWrap, styles.iconSpeak)}>
+                  <HiOutlineVolumeUp className={styles.icon} />
+                </span>
+              </button>
+            </>
           </div>
 
           <div className={styles.bottomWrap}>
