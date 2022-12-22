@@ -8,29 +8,45 @@ const Homepage = () => {
       <ul className={styles.linkContainer}>
         {/* questions 1-57 */}
         <li className={styles.linkWrap}>
-          <Link to="/category/1" className={styles.link}>
+          <Link
+            to="/category/1"
+            aria-label="Category 1: AMERICAN GOVERNMENT"
+            className={styles.link}
+          >
             Category 1: AMERICAN GOVERNMENT
           </Link>
         </li>
         {/* questions 58-87 */}
         <li className={styles.linkWrap}>
-          <Link to="/category/2" className={styles.link}>
+          <Link
+            to="/category/2"
+            aria-label="Category 2: AMERICAN HISTORY"
+            className={styles.link}
+          >
             Category 2: AMERICAN HISTORY
           </Link>
         </li>
         {/* questions: 88-100 */}
         <li className={styles.linkWrap}>
-          <Link to="/category/3" className={styles.link}>
+          <Link
+            to="/category/3"
+            aria-label="Category 3: OTHER"
+            className={styles.link}
+          >
             Category 3: OTHER
           </Link>
         </li>
         <li className={styles.linkWrap}>
-          <Link to="/category/all" className={styles.link}>
+          <Link
+            to="/category/all"
+            aria-label="All category"
+            className={styles.link}
+          >
             All
           </Link>
         </li>
         <li className={styles.linkWrap}>
-          <Link to="/quiz" className={styles.link}>
+          <Link to="/quiz" aria-label="Practice test" className={styles.link}>
             Practice Test
           </Link>
         </li>

@@ -12,7 +12,11 @@ const QuestionsList = ({ data, results }) => {
           : null;
         return (
           <li key={i} className={styles.questionWrap}>
-            <Link to={`${i + 1}`} className={styles.questionLink}>
+            <Link
+              to={`${i + 1}`}
+              className={styles.questionLink}
+              aria-label="question details"
+            >
               <span>{x.question}</span>
               {results ? (
                 correct ? (
