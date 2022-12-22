@@ -23,6 +23,7 @@ export const StudyButtons = ({ activeIndex, handleFlip, totalQ }) => {
         to={`${tempArr}/${activeIndex === 1 ? totalQ : activeIndex - 1}`}
         className={styles.btn}
         onClick={() => cancel()}
+        aria-label="Go to previous question."
       >
         <span>Prev</span>
         <span className={styles.iconWrap}>
@@ -31,7 +32,12 @@ export const StudyButtons = ({ activeIndex, handleFlip, totalQ }) => {
       </Link>
 
       {/* check */}
-      <button className={styles.btn} onClick={handleFlip}>
+      <button
+        type="button"
+        className={styles.btn}
+        onClick={handleFlip}
+        aria-label="Flip the card over to see the other side."
+      >
         <span>Check</span>
         <span className={styles.iconWrap}>
           <HiOutlineRefresh className={styles.icon} />
@@ -43,6 +49,7 @@ export const StudyButtons = ({ activeIndex, handleFlip, totalQ }) => {
         className={styles.btn}
         to={`${tempArr}/${activeIndex === totalQ ? 1 : activeIndex + 1}`}
         onClick={() => cancel()}
+        aria-label="Go to next question."
       >
         <span>Next</span>
         <span className={styles.iconWrap}>
@@ -80,7 +87,12 @@ export const QuizButtons = ({
     <>
       {isFlipped ? (
         <>
-          <button className={styles.btn} onClick={handleIncorrect}>
+          <button
+            type="button"
+            className={styles.btn}
+            onClick={handleIncorrect}
+            aria-label="Mark this question as incorrect."
+          >
             {/* Inorrect */}
             <span className={clsx(styles.iconWrap, styles.iconWrapNoOutline)}>
               <HiOutlineEmojiSad
@@ -92,7 +104,12 @@ export const QuizButtons = ({
               />
             </span>
           </button>
-          <button className={styles.btn} onClick={handleCorrect}>
+          <button
+            type="button"
+            className={styles.btn}
+            onClick={handleCorrect}
+            aria-label="Mark this question as correct."
+          >
             {/* correct icon */}
             <span className={clsx(styles.iconWrap, styles.iconWrapNoOutline)}>
               <HiOutlineEmojiHappy
@@ -107,13 +124,23 @@ export const QuizButtons = ({
         </>
       ) : (
         <>
-          <button className={styles.btn} onClick={handleSkip}>
+          <button
+            type="button"
+            className={styles.btn}
+            onClick={handleSkip}
+            aria-label="Skip answering this question."
+          >
             <span>Skip</span>
             <span className={styles.iconWrap}>
               <HiArrowNarrowRight className={styles.icon} />
             </span>
           </button>
-          <button className={styles.btn} onClick={handleFlip}>
+          <button
+            type="button"
+            className={styles.btn}
+            onClick={handleFlip}
+            aria-label="Flip the card over to see the other side."
+          >
             <span>Check</span>
             <span className={styles.iconWrap}>
               <HiOutlineRefresh className={styles.icon} />

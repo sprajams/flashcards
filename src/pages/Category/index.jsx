@@ -13,12 +13,20 @@ const Category = () => {
       {/* to just begin studying all cards */}
       <div className={styles.btnContainer}>
         <h2 className={styles.studyBtn}>
-          <Link to="1" className={styles.btnLink}>
+          <Link
+            to="1"
+            className={styles.btnLink}
+            aria-label="Start studying flashcards."
+          >
             Study
           </Link>
         </h2>
         <h2 className={clsx(styles.studyBtn, styles.quizBtn)}>
-          <Link to="quiz" className={styles.btnLink}>
+          <Link
+            to="quiz"
+            className={styles.btnLink}
+            aria-label="Start the quiz."
+          >
             Quiz
           </Link>
         </h2>

@@ -17,6 +17,7 @@ export const SpeechButtons = ({ text }) => {
       className={clsx(styles.btn, isSpeaking)}
       type="button"
       onClick={isSpeaking ? handleMute : handleSpeak}
+      aria-label={isSpeaking ? "Mute" : "Speak"}
     >
       <span className={styles.iconWrap}>
         {isSpeaking ? (

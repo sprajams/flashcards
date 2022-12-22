@@ -36,6 +36,8 @@ const ModalOverlay = ({ isOpen, handleOnclick }) => {
               className={styles.closeIcon}
               onClick={handleOnclick}
               whileHover={{ scale: 1.2 }}
+              type="button"
+              aria-label="Close infomationa modal opened."
             >
               <HiOutlineXCircle className={styles.icon} />
             </motion.button>

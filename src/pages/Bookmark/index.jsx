@@ -17,7 +17,9 @@ const Bookmark = () => {
             );
             return (
               <li key={i}>
-                <Link to={`${targetObj.id}`}>{targetObj.question}</Link>
+                <Link to={`${targetObj.id}`} aria-label="question details">
+                  {targetObj.question}
+                </Link>
               </li>
             );
           })}
