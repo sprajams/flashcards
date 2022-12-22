@@ -21,7 +21,12 @@ const BackLink = () => {
 
   return (
     //TODO: is there a better method than hardcoding?
-    <button type="button" className={styles.backLink} onClick={handleBack}>
+    <button
+      type="button"
+      className={styles.backLink}
+      onClick={handleBack}
+      aria-label="Navigate back to the previous page."
+    >
       <span className={styles.iconWrap}>
         <HiChevronLeft />
       </span>

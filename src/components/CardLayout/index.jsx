@@ -132,6 +132,7 @@ const CardLayout = ({
                     type="button"
                     className={clsx(styles.infoSmall, styles.bookmarkBtn)}
                     onClick={handleUnbookmark}
+                    aria-label="Unbookmark this question."
                   >
                     {/* bookmarked, filled icon */}
                     <BsBookmarkFill className={styles.icon} />
@@ -141,6 +142,7 @@ const CardLayout = ({
                     type="button"
                     className={clsx(styles.infoSmall, styles.bookmarkBtn)}
                     onClick={handleBookmark}
+                    aria-label="Bookmark this question."
                   >
                     {/* bookmark-able, outlined icon */}
                     <BsBookmark className={styles.icon} />

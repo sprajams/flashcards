@@ -9,6 +9,8 @@ const Modal = ({ handleOnclick }) => {
         onClick={handleOnclick}
         className={styles.btnIcon}
         whileHover={{ scale: 1.2 }}
+        type="button"
+        aria-label="Toggle infomation icon for app details."
       >
         <HiOutlineInformationCircle className={styles.icon} />
       </motion.button>
