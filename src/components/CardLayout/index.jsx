@@ -36,16 +36,16 @@ const CardLayout = ({
 
   const [isFlipped, setIsFlipped] = useState(false);
   // get state of bookmarks
-  const bookmarkState = useSelector((state) => state.bookmarks);
+  const bookmarkState = useSelector((state) => state.bookmarks.data);
   const dispatch = useDispatch();
   const handleBookmark = () => {
-    dispatch(add({ index: id }));
+    dispatch(add({ data: data }));
   };
   const handleUnbookmark = () => {
     dispatch(remove({ index: id }));
   };
   // return boolean on if individual card is bookmarked
-  const isBookmarked = bookmarkState.indexOf(id) >= 0;
+  const isBookmarked = bookmarkState.some((elem) => elem.id === id); //some returns bool
 
   // check if in review mode, show back of card with answers
   useEffect(() => {
