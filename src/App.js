@@ -12,6 +12,7 @@ import { useState } from "react";
 import ModalOverlay from "./components/ModalOverlay";
 import { SpeechProvider } from "./contexts/SpeechContext";
 import "./App.scss";
+import BookmarkMode from "./pages/BookmarkMode";
 
 function App() {
   const routeKey = useHref(); //return the current URL which changes on navigation
@@ -56,9 +57,10 @@ function App() {
 
               {/* access all questions bookmarked */}
               <Route path="bookmark" element={<Bookmark />} />
+
               <Route
                 path="bookmark/:cardIndex"
-                element={<StudyMode key={routeKey} />}
+                element={<BookmarkMode key={routeKey} />}
               />
             </Routes>
             <ModalOverlay isOpen={isOpen} handleOnclick={handleOnclick} />
