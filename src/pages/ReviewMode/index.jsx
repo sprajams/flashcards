@@ -6,7 +6,6 @@ const ReviewMode = () => {
   const quiz = useSelector((state) => state.quiz);
   const { cardIndex } = useParams();
   let activeIndex = parseInt(cardIndex);
-  console.log(quiz.data[activeIndex]);
   return (
     <>
       <CardLayout

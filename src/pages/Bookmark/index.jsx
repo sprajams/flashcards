@@ -7,9 +7,7 @@ const Bookmark = () => {
   return (
     <div>
       <h1>BOOKMARK</h1>
-      {bookmarks.data.length > 0 ? (
-        <QuestionsList data={bookmarks.data} />
-      ) : null}
+      {bookmarks.id.length > 0 ? <QuestionsList data={bookmarks.id} /> : null}
     </div>
   );
 };
