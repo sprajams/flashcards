@@ -45,7 +45,7 @@ const CardLayout = ({
     dispatch(remove({ index: id }));
   };
   // return boolean on if individual card is bookmarked
-  const isBookmarked = bookmarkState.some((elem) => elem === id); //some returns bool
+  const isBookmarked = bookmarkState.some((elem) => elem === id) || false; //some returns bool
 
   // check if in review mode, show back of card with answers
   useEffect(() => {
